@@ -7,11 +7,9 @@
     <style>
         :root {
             --primary-gold: #D4AF37;
-            /* የውሃ ሰማያዊ ቀለም */
-            --sky-blue: #87CEEB; 
+            --deep-blue: #003366; 
             --parchment: #F5F5DC;
             --dark-text: #2C2C2C;
-            --deep-blue-text: #003366;
         }
 
         body {
@@ -24,29 +22,30 @@
         }
 
         header {
-            /* Header ባክግራውንድ ወደ ውሃ ሰማያዊ ተቀይሯል */
-            background-color: var(--sky-blue);
-            color: var(--deep-blue-text);
-            padding: 2.5rem 1rem;
+            /* የሰማያዊው ፎቶ እዚህ ጋር በባክግራውንድነት ገብቷል */
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('HeaderBg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white; /* ጽሑፉ ጎልቶ እንዲታይ ነጭ ሆኗል */
+            padding: 3rem 1rem; /* ፎቶው ይበልጥ እንዲታይ ቁመቱን ጨምሬዋለሁ */
             text-align: center;
-            /* የወርቃማው መስመር ውፍረት እጥፍ (10px) ሆኗል */
+            /* የወርቃማው መስመር ውፍረት ካለበት እጥፍ (10px) ሆኗል */
             border-bottom: 10px solid var(--primary-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* ጽሑፉ ይበልጥ እንዲነበብ ጥላ ተጨምሮበታል */
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.2rem;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+            font-size: 2.5rem;
         }
 
         nav {
             background: #333;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 3px solid var(--primary-gold);
         }
 
         nav a {
@@ -54,15 +53,14 @@
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
-            font-size: 1.1rem;
         }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Begena.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Begena.jpg');
             background-size: cover;
             background-position: center;
             color: white;
-            height: 450px;
+            height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -96,10 +94,9 @@
 
         .card {
             background: white;
-            padding: 0;
+            padding: 0; /* ምስሉ ሙሉ በሙሉ እንዲታይ */
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            /* የካርዶቹ የላይኛው መስመርም ወፍሯል */
             border-top: 6px solid var(--primary-gold);
             text-align: center;
             transition: 0.3s;
@@ -115,36 +112,34 @@
             height: 180px;
             background-size: cover;
             background-position: center;
+            border-radius: 8px;
             background-color: #eee;
         }
 
         .card h3 {
-            color: var(--deep-blue-text);
+            color: var(--deep-blue);
             margin: 15px 0 10px 0;
         }
 
         .card p {
             padding: 0 15px 20px 15px;
-            font-size: 1rem;
         }
 
         .contact-info {
-            background: #f0f7fa;
-            padding: 40px;
-            border-radius: 15px;
+            background: #eee;
+            padding: 30px;
+            border-radius: 8px;
             margin-top: 40px;
-            border: 1px solid var(--sky-blue);
         }
 
         .social-links a {
             display: inline-block;
             margin: 10px;
-            padding: 12px 25px;
-            background: var(--deep-blue-text);
+            padding: 10px 20px;
+            background: var(--deep-blue);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
+            border-radius: 5px;
         }
 
         footer {
@@ -158,24 +153,23 @@
 
         .btn-register {
             background-color: var(--primary-gold);
-            color: var(--deep-blue-text);
-            padding: 18px 35px;
+            color: var(--deep-blue);
+            padding: 15px 30px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 40px;
-            font-size: 1.3rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
             transition: 0.3s;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .btn-register:hover {
             background-color: white;
-            transform: scale(1.05);
+            color: var(--deep-blue);
         }
 
         strong {
-            color: var(--deep-blue-text);
+            color: var(--deep-blue);
         }
     </style>
 </head>
@@ -183,7 +177,7 @@
 
 <header>
     <h1>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</h1>
-    <p style="font-size: 1.2rem; font-weight: bold;">ጥንታዊውን ጥበብ ለዘመኑ ትውልድ</p>
+    <p style="font-size: 1.2rem;">ጥንታዊውን ጥበብ ለዘመኑ ትውልድ</p>
 </header>
 
 <nav>
@@ -202,7 +196,7 @@
 
 <div class="container">
     <section id="about" class="about-section">
-        <h2 style="text-align:center; color: var(--deep-blue-text); font-size: 2rem; margin-top: 0;">ስለ ዋይዜማ ማዕከል</h2>
+        <h2 style="text-align:center; color: var(--deep-blue); font-size: 2rem; margin-top: 0;">ስለ ዋይዜማ ማዕከል</h2>
         <p style="text-align:justify; font-size: 1.2rem; max-width: 900px; margin: auto; line-height: 1.8;">
             ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማዕከል ላለፉት <strong>6 ዓመታት</strong> ጥንታዊ የሆኑትን የኢትዮጵያ መንፈሳዊና ባህላዊ እሴቶች ለቀጣዩ ትውልድ ሳይበረዙ እንዲተላለፉ በቁርጠኝነት እየሰራ ይገኛል። 
             ማዕከላችን በበገና ድርደራ፣ በሥነ-ሥዕል፣ በቅርጻቅርጽና በሌሎችም ዘርፎች በርካታ ባለሙያዎችን አፍርቷል። 
@@ -211,7 +205,7 @@
     </section>
 
     <section id="services">
-        <h2 style="text-align:center; color: var(--deep-blue-text); font-size: 2rem; margin-bottom: 30px;">የሥልጠና ዘርፎች</h2>
+        <h2 style="text-align:center; color: var(--deep-blue); font-size: 2rem; margin-bottom: 30px;">የሥልጠና ዘርፎች</h2>
         <div class="services">
             <div class="card">
                 <div class="card-image" style="background-image: url('begena_service.jpg');"></div>
@@ -252,9 +246,9 @@
     </section>
 
     <section id="contact" class="contact-info">
-        <h2 style="color: var(--deep-blue-text); margin-top: 0;">ያግኙን</h2>
-        <p style="font-size: 1.1rem;"><strong>ስልክ:</strong> +251 918 486 017</p>
-        <p style="font-size: 1.1rem;"><strong>ኢሜይል:</strong> amhasilasienigus@gmail.com</p>
+        <h2 style="color: var(--deep-blue); margin-top: 0;">ያግኙን</h2>
+        <p><strong>ስልክ:</strong> +251 918 486 017</p>
+        <p><strong>ኢሜይል:</strong> amhasilasienigus@gmail.com</p>
         <div class="social-links">
             <a href="https://t.me/maidetibeb29">Telegram</a>
             <a href="https://www.facebook.com/profile.php?id=100064679410445">Facebook</a>

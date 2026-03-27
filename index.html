@@ -48,6 +48,7 @@
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Begena.jpg');
             background-size: cover;
+            background-position: center;
             color: white;
             height: 400px;
             display: flex;
@@ -64,6 +65,16 @@
             padding: 20px;
         }
 
+        /* ስለ እኛ ክፍል አዲስ ዲዛይን */
+        .about-section {
+            background: white;
+            padding: 40px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 30px 0;
+            border-left: 8px solid var(--primary-gold);
+        }
+
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -73,11 +84,16 @@
 
         .card {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-top: 4px solid var(--primary-gold);
             text-align: center;
+            transition: 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
         }
 
         .contact-info {
@@ -114,10 +130,16 @@
             border-radius: 30px;
             font-size: 1.2rem;
             transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .btn-register:hover {
             background-color: white;
+            color: var(--deep-maroon);
+        }
+
+        strong {
+            color: var(--deep-maroon);
         }
     </style>
 </head>
@@ -143,9 +165,13 @@
 </section>
 
 <div class="container">
-    <section id="about">
-        <h2 style="text-align:center; color: var(--deep-maroon);">ስለ ዋይዜማ ማዕከል</h2>
-        <p style="text-align:center; font-size: 1.1rem;">ማዕከላችን የኢትዮጵያን ጥንታዊ መንፈሳዊ እሴቶች ሳይበረዙ ለቀጣዩ ትውልድ ለማስተላለፍ የተመሠረተ የጥበብ አውድ ነው።</p>
+    <section id="about" class="about-section">
+        <h2 style="text-align:center; color: var(--deep-maroon); font-size: 1.8rem; margin-top: 0;">ስለ ዋይዜማ ማዕከል</h2>
+        <p style="text-align:justify; font-size: 1.15rem; max-width: 900px; margin: auto; line-height: 1.8;">
+            ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማዕከል ላለፉት <strong>6 ዓመታት</strong> ጥንታዊ የሆኑትን የኢትዮጵያ መንፈሳዊና ባህላዊ እሴቶች ለቀጣዩ ትውልድ ሳይበረዙ እንዲተላለፉ በቁርጠኝነት እየሰራ ይገኛል። 
+            ማዕከላችን በበገና ድርደራ፣ በሥነ-ሥዕል፣ በቅርጻቅርጽና በሌሎችም ዘርፎች በርካታ ባለሙያዎችን አፍርቷል። 
+            ዋናው ዓላማችን ጥበብን ከመንፈሳዊነት ጋር በማጣመር ሰብዕናው የታነጸ ትውልድ መገንባት ነው።
+        </p>
     </section>
 
     <section id="services">

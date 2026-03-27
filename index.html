@@ -8,17 +8,16 @@
         :root {
             --primary-gold: #D4AF37;
             --deep-blue: #003366; 
-            /* የጀርባው ቀለም አነስተኛ የብራና መልክ (Parchment Light) እንዲኖረው */
-            --parchment-bg: #FDF5E6; 
+            /* አጠቃላይ የጀርባ ቀለም (ከብራናው ጋር እንዲሄድ) */
+            --bg-color: #FDF5E6; 
             --dark-text: #2C2C2C;
-            --pure-parchment: #F5F5DC;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--parchment-bg); /* የድረ-ገጹ አጠቃላይ ጀርባ */
+            background-color: var(--bg-color);
             color: var(--dark-text);
             line-height: 1.6;
         }
@@ -76,15 +75,18 @@
         }
 
         .about-section {
-            /* እዚህ ጋር ነው ጽሑፉ ያረፈበት ሳጥን ወደ ብራናነት የተቀየረው */
-            background: var(--pure-parchment); /* ይሄ የብራና ቀለም ነው */
-            padding: 40px 25px;
+            /* እዚህ ጋር ነው እውነተኛው የብራና ምስል የገባው */
+            background-image: url('birana.jpg'); /* የሰቀሉት ምስል እዚህ ጋር ይገናኛል */
+            background-size: cover; /* ምስሉ ሙሉውን ሳጥን እንዲሸፍን */
+            background-position: center;
+            padding: 50px 30px; /* ጽሑፉ ከዳር እንዳይጠጋ ፓዲንግ ጨምሬዋለሁ */
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* ይበልጥ እንዲጎላ ሳጥኑን ጎላ አድርጌዋለሁ */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* ይበልጥ ጎላ ብሎ እንዲታይ */
             margin: 30px 0;
-            border-left: 10px solid var(--primary-gold);
-            overflow-y: auto; 
-            max-height: calc(100vh - 100px); 
+            border-left: 12px solid var(--primary-gold); /* የወርቃማው መስመር ውፍረት ጨምሯል */
+            
+            /* ጽሑፉ በብራናው ላይ በደንብ እንዲነበብ ጥላ ተጨምሮበታል */
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
         }
 
         .services {
@@ -95,7 +97,7 @@
         }
 
         .card {
-            background: white; /* የዘርፎቹ ሳጥኖች ነጭ ሆነው ይቀጥላሉ */
+            background: white;
             padding: 0;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -198,8 +200,8 @@
 
 <div class="container">
     <section id="about" class="about-section">
-        <h2 style="text-align:center; color: var(--deep-blue); font-size: 2rem; margin-top: 0;">ስለ ዋይዜማ ማዕከል</h2>
-        <p style="text-align:justify; font-size: 1.2rem; max-width: 900px; margin: auto; line-height: 1.8;">
+        <h2 style="text-align:center; color: var(--deep-blue); font-size: 2.2rem; margin-top: 0; text-shadow: 1px 1px 1px white;">ስለ ዋይዜማ ማዕከል</h2>
+        <p style="text-align:justify; font-size: 1.25rem; max-width: 900px; margin: auto; line-height: 1.9; font-weight: 500;">
             ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማዕከል ላለፉት <strong>6 ዓመታት</strong> ጥንታዊ የሆኑትን የኢትዮጵያ መንፈሳዊና ባህላዊ እሴቶች ለቀጣዩ ትውልድ ሳይበረዙ እንዲተላለፉ በቁርጠኝነት እየሰራ ይገኛል። 
             ማዕከላችን በበገና ድርደራ፣ በሥነ-ሥዕል፣ በቅርጻቅርጽና በሌሎችም ዘርፎች በርካታ ባለሙያዎችን አፍርቷል። 
             ዋናው ዓላማችን ጥበብን ከመንፈሳዊነት ጋር በማጣመር ሰብዕናው የታነጸ ትውልድ መገንባት ነው።

@@ -8,15 +8,17 @@
         :root {
             --primary-gold: #D4AF37;
             --deep-blue: #003366; 
-            --parchment: #F5F5DC;
+            /* የጀርባው ቀለም አነስተኛ የብራና መልክ (Parchment Light) እንዲኖረው */
+            --parchment-bg: #FDF5E6; 
             --dark-text: #2C2C2C;
+            --pure-parchment: #F5F5DC;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--parchment);
+            background-color: var(--parchment-bg); /* የድረ-ገጹ አጠቃላይ ጀርባ */
             color: var(--dark-text);
             line-height: 1.6;
         }
@@ -74,15 +76,15 @@
         }
 
         .about-section {
-            background: white;
+            /* እዚህ ጋር ነው ጽሑፉ ያረፈበት ሳጥን ወደ ብራናነት የተቀየረው */
+            background: var(--pure-parchment); /* ይሄ የብራና ቀለም ነው */
             padding: 40px 25px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* ይበልጥ እንዲጎላ ሳጥኑን ጎላ አድርጌዋለሁ */
             margin: 30px 0;
             border-left: 10px solid var(--primary-gold);
-            /* የተቆረጠውን ጽሑፍ ለማስተካከል የሚከተሉት ተጨምረዋል */
-            overflow-y: auto; /* አስፈላጊ ከሆነ ScrollBar እንዲኖረው */
-            max-height: calc(100vh - 100px); /* ከስክሪኑ ቁመት እንዳይበልጥ */
+            overflow-y: auto; 
+            max-height: calc(100vh - 100px); 
         }
 
         .services {
@@ -93,7 +95,7 @@
         }
 
         .card {
-            background: white;
+            background: white; /* የዘርፎቹ ሳጥኖች ነጭ ሆነው ይቀጥላሉ */
             padding: 0;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);

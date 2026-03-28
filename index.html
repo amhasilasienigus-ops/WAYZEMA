@@ -75,7 +75,7 @@
         }
 
         .about-section {
-            background-image: url('birana.jpg'); /* */
+            background-image: url('birana.jpg');
             background-size: cover;
             background-position: center;
             padding: 40px 20px;
@@ -88,14 +88,14 @@
 
         .services {
             display: grid;
+            /* እዚህ ጋር በሞባይል ላይ በሁለት ረድፍ እንዲታይ ተስተካክሏል */
             grid-template-columns: repeat(2, 1fr); 
             gap: 15px;
             margin-top: 25px;
         }
 
         .card {
-            /* የዘርፎቹ ካርዶችም የብራና ምስል እንዲኖራቸው ተደርጓል */
-            background-image: url('birana.jpg'); /* */
+            background-image: url('birana.jpg');
             background-size: cover;
             background-position: center;
             padding: 0;
@@ -107,6 +107,10 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            /* የተቆረጠውን ክፍል ለማስተካከል የሚከተሉት ተጨምረዋል */
+            margin-bottom: 20px; /* ካርዶች ከታች ክፍት ቦታ እንዲኖራቸው */
+            max-height: calc(100vh - 100px); /* ከስክሪኑ ቁመት እንዳይበልጥ */
+            overflow-y: auto; /* አስፈላጊ ከሆነ ScrollBar እንዲኖረው */
         }
         
         .card:hover {
@@ -118,7 +122,7 @@
             background-size: contain; 
             background-repeat: no-repeat;
             background-position: center;
-            background-color: rgba(238, 238, 238, 0.5); /* ምስሉ ከብራናው ጋር እንዲዋሃድ */
+            background-color: rgba(238, 238, 238, 0.5); 
             height: 140px;
         }
 
@@ -141,6 +145,19 @@
             padding: 25px;
             border-radius: 8px;
             margin-top: 30px;
+            /* የግንኙነት ክፍሉ በሞባይል ላይ በሁለት ረድፍ እንዲታይ ተስተካክሏል */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .contact-info div {
+            padding: 0;
+        }
+        
+        .contact-info h2 {
+            grid-column: 1 / -1; /* ሙሉውን ረድፍ እንዲሸፍን */
+            margin-bottom: 15px;
         }
 
         footer {
@@ -209,4 +226,44 @@
             <div class="card">
                 <div class="card-image" style="background-image: url('ሥዕል.jpg');"></div>
                 <h3>ሥነ-ሥዕል</h3>
-                <p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት
+                <p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት።</p>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('ቅርጽ.jpg');"></div>
+                <h3>ቅርጻቅርጽ</h3>
+                <p>በእንጨትና በድንጋይ ላይ የሚቀረጹ ጥበቦች።</p>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('Kirar.jpg');"></div>
+                <h3>ክራርና መሰንቆ</h3>
+                <p>የባህላዊ ዜማ መሣሪያዎች አያያዝና አጠቃቀም።</p>
+            </div>
+            <div class="card">
+                <div class="card-image" style="background-image: url('ትት.jpg');"></div>
+                <h3>መንፈሳዊ ትምህርት</h3>
+                <p>ሥርዓተ ቤተክርስቲያንና የሃይማኖት ትምህርቶች።</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-info">
+        <h2 style="color: var(--deep-blue);">ያግኙን</h2>
+        <div>
+            <p><strong>ስልክ:</strong> +251 918 486 017</p>
+        </div>
+        <div>
+            <p><strong>ኢሜይል:</strong> amhasilasienigus@gmail.com</p>
+        </div>
+        <div class="social-links" style="grid-column: 1 / -1;">
+            <a href="https://t.me/maidetibeb29">Telegram</a>
+            <a href="https://www.facebook.com/profile.php?id=100064679410445">Facebook</a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</p>
+</footer>
+
+</body>
+</html>

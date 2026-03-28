@@ -22,7 +22,6 @@
         }
 
         header {
-            /* እዚህ ጋር ሰማያዊው ቀለም ጠፍቶ በብራና ምስል ተተክቷል */
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('birana.jpg');
             background-size: cover;
             background-position: center;
@@ -171,6 +170,9 @@
     <section id="register" class="form-section">
         <h2>የምዝገባ ቅጽ</h2>
         <form class="registration-form" action="https://formspree.io/f/mqegpkpe" method="POST">
+            
+            <input type="hidden" name="_next" value="https://enigus-ops.github.io/thanks.html">
+            
             <div class="form-group">
                 <label>ሙሉ ስም</label>
                 <input type="text" name="full_name" required>

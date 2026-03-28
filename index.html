@@ -111,10 +111,12 @@
         .card-image {
             width: 100%;
             height: 180px;
-            background-size: cover;
-            background-position: center;
+            /* ምስሎቹ ሳይቆረጡ ሙሉ በሙሉ እንዲታዩ ማስተካከያ ተደርጓል */
+            background-size: contain; /* ምስሉ ሙሉ በሙሉ እንዲታይ */
+            background-repeat: no-repeat; /* እንዳይደገም */
+            background-position: center; /* መሃል ላይ እንዲሆን */
             border-radius: 8px;
-            background-color: #eee;
+            background-color: #f9f9f9; /* ለጀርባ ትንሽ ቀለም (አስፈላጊ ከሆነ) */
         }
 
         .card h3 {
@@ -209,7 +211,7 @@
         <h2 style="text-align:center; color: var(--deep-blue); font-size: 2rem; margin-bottom: 30px;">የሥልጠና ዘርፎች</h2>
         <div class="services">
             <div class="card">
-                <div class="card-image" style="background-image: url('መዝሙር.jpg'); background-size: contain; background-repeat: no-repeat;"></div>
+                <div class="card-image" style="background-image: url('መዝሙር.jpg');"></div>
                 <h3>በገና</h3>
                 <p>የአሥሩ አውታር ምስጢርና የዳዊት መዝሙር ድርደራ።</p>
             </div>
@@ -221,25 +223,25 @@
             </div>
             
             <div class="card">
-                <div class="card-image" style="background-image: url('iconography_service.jpg');"></div>
+                <div class="card-image" style="background-image: url('ሥዕል.jpg');"></div>
                 <h3>ሥነ-ሥዕል</h3>
                 <p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት።</p>
             </div>
             
             <div class="card">
-                <div class="card-image" style="background-image: url('carving_service.jpg');"></div>
+                <div class="card-image" style="background-image: url('ቅርጽ.jpg');"></div>
                 <h3>ቅርጻቅርጽ</h3>
                 <p>በእንጨትና በድንጋይ ላይ የሚቀረጹ ጥበቦች።</p>
             </div>
             
             <div class="card">
-                <div class="card-image" style="background-image: url('krar_service.jpg');"></div>
+                <div class="card-image" style="background-image: url('kirar.jpg');"></div>
                 <h3>ክራርና መሰንቆ</h3>
                 <p>የባህላዊ ዜማ መሣሪያዎች አያያዝና አጠቃቀም።</p>
             </div>
             
             <div class="card">
-                <div class="card-image" style="background-image: url('spiritual_service.jpg');"></div>
+                <div class="card-image" style="background-image: url('ትት.jpg');"></div>
                 <h3>መንፈሳዊ ትምህርት</h3>
                 <p>ሥርዓተ ቤተክርስቲያንና የሃይማኖት ትምህርቶች።</p>
             </div>

@@ -15,10 +15,15 @@
             --parchment-bg: #FDF5E6; 
             --dark-text: #2C2C2C;
             --white: #ffffff;
+            --card-text-color: #004d99;
+            --telegram-color: #0088cc;
+            --youtube-color: #ff0000;
+            --facebook-color: #1877f2;
+            --tiktok-color: #010101;
         }
 
         body {
-            font-family: 'Noto Sans Ethiopic', sans-serif;
+            font-family: 'Noto Sans Ethiopic', 'Segoe UI', sans-serif;
             margin: 0; padding: 0;
             background-color: var(--parchment-bg);
             color: var(--dark-text);
@@ -26,57 +31,68 @@
             scroll-behavior: smooth;
         }
 
-        /* Top Bar & Header */
         .top-bar { background-color: var(--deep-blue); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.85rem; flex-wrap: wrap; }
-        header { background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), url('1.jpg'); background-size: cover; background-position: center; color: white; padding: 3rem 1rem; text-align: center; border-bottom: 5px solid var(--primary-gold); }
+        .top-bar-item { display: flex; align-items: center; margin: 2px 0; }
+        .top-bar-item i { color: var(--primary-gold); margin-right: 5px; }
 
-        /* Navigation */
-        nav { background: #333; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav a { color: white; text-decoration: none; margin: 5px 15px; font-weight: bold; transition: 0.3s; }
-        nav a:hover { color: var(--primary-gold); }
+        header { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('HeaderBg.jpg'); background-size: cover; background-position: center; color: white; padding: 2rem 1rem; text-align: center; border-bottom: 8px solid var(--primary-gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
 
-        /* Responsive Hero Slideshow */
-        .hero-slideshow { position: relative; width: 100%; height: 500px; overflow: hidden; }
+        nav { background: #333; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.9rem; }
+
+        /* Slide Show Styling */
+        .hero-slideshow { position: relative; width: 100%; height: 450px; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; }
         .slideshow-images { position: absolute; width: 100%; height: 100%; display: flex; transition: transform 1.2s ease-in-out; }
         .slideshow-images img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
-        .slideshow-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.55); z-index: 2; }
-        .slideshow-content { position: absolute; width: 100%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; color: white; text-align: center; padding: 0 20px; }
+        .slideshow-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2; }
+        .slideshow-content { position: relative; z-index: 3; color: white; padding: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
 
-        /* Responsive Grid for Services */
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
-        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-content { padding: 15px; text-align: center; }
+        .container { max-width: 1100px; margin: auto; padding: 15px; }
 
-        /* Form Styling */
-        .form-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 40px 0; }
-        .registration-form { display: grid; gap: 15px; grid-template-columns: 1fr 1fr; }
+        .about-section { background-image: url('birana.jpg'); background-size: cover; padding: 40px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0; border-left: 10px solid var(--primary-gold); }
+
+        /* Accordion Form */
+        .form-container { margin: 40px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .form-header { background-color: var(--deep-blue); color: var(--primary-gold); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: bold; border-bottom: 4px solid var(--primary-gold); }
+        .form-content { background: white; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease; }
+        .form-content.active { padding: 40px; max-height: 1200px; }
+
+        .registration-form { display: grid; gap: 20px; grid-template-columns: repeat(2, 1fr); }
         .form-group { display: flex; flex-direction: column; }
-        .full-width { grid-column: span 2; }
-        input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
-        .btn-submit { background: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 1.1rem; transition: 0.3s; }
+        .form-group label { font-weight: bold; margin-bottom: 5px; color: var(--deep-blue); }
+        .form-group input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
+        .form-group.full-width { grid-column: span 2; }
 
-        /* Footer & Admin Link */
-        footer { background: #222; color: #eee; text-align: center; padding: 40px 20px; margin-top: 50px; }
-        .admin-link { display: block; margin-top: 15px; color: #888; text-decoration: none; font-size: 0.85rem; }
+        .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; }
+        #status { text-align: center; margin-top: 10px; font-weight: bold; }
 
-        /* 📱 Mobile Responsiveness (The Fix for the Expert's comment) */
-        @media (max-width: 768px) {
-            .hero-slideshow { height: 300px; }
+        .services { display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px; margin-top: 25px; }
+        .card { background-image: url('birana.jpg'); background-size: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); text-align: center; overflow: hidden; display: flex; flex-direction: column; }
+        .card-image img { width: 100%; height: auto; display: block; }
+        .card h3 { color: var(--card-text-color); margin: 10px 0; }
+
+        .contact-info { background: #eee; padding: 30px; border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; text-align: center; }
+        .social-icons a { font-size: 2.2rem; margin: 0 15px; text-decoration: none; }
+        .social-icons a .fa-telegram { color: var(--telegram-color); }
+        .social-icons a .fa-youtube { color: var(--youtube-color); }
+        .social-icons a .fa-facebook { color: var(--facebook-color); }
+        .social-icons a .fa-tiktok { color: var(--tiktok-color); }
+
+        footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 40px; border-top: 5px solid var(--primary-gold); }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.4rem; }
+            .hero-slideshow { height: 350px; }
             .registration-form { grid-template-columns: 1fr; }
-            .full-width { grid-column: span 1; }
-            header h1 { font-size: 1.3rem; }
-            .slideshow-content h2 { font-size: 1.5rem; }
-            nav a { margin: 5px 10px; font-size: 0.9rem; }
+            .form-group.full-width { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
 <div class="top-bar">
-    <span><i class="fas fa-phone"></i> +251 918 486 017</span>
-    <span><i class="fas fa-envelope"></i> amhasilasienigus@gmail.com</span>
+    <div class="top-bar-item"><i class="fas fa-phone"></i> +251 918 486 017</div>
+    <div class="top-bar-item"><i class="fas fa-envelope"></i> amhasilasienigus@gmail.com</div>
 </div>
 
 <header>
@@ -87,9 +103,8 @@
 <nav>
     <a href="#home">መነሻ</a>
     <a href="#about">ስለ እኛ</a>
-    <a href="#services">ዘርፎች</a>
     <a href="#register">ምዝገባ</a>
-    <a href="admin.html" style="color: var(--primary-gold);">ዳሽቦርድ</a>
+    <a href="#services">ዘርፎች</a>
 </nav>
 
 <section class="hero-slideshow" id="home">
@@ -103,89 +118,137 @@
     </div>
     <div class="slideshow-overlay"></div>
     <div class="slideshow-content">
-        <h2>የጥበብ መጀመሪያ እግዚአብሔርን መፍራት ነው</h2>
-        <p>በገና ፣ ሥነ ሥዕል ፣ ቅርጻቅርጽ እና ሌሎችም ጥበባት</p>
-        <a href="#register" style="display:inline-block; background: var(--primary-gold); color: var(--deep-blue); padding: 12px 30px; text-decoration:none; border-radius:30px; font-weight:bold; margin-top:20px;">አሁኑኑ ይመዝገቡ</a>
+        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">የጥበብ መጀመሪያ እግዚአብሔርን መፍራት ነው</h2>
+        <p style="font-size: 1.2rem;">በገና ፣ ሥነ ሥዕል ፣ ቅርጻቅርጽ እና ሌሎችም ጥበባት</p>
+        <button onclick="toggleForm()" style="background-color: var(--primary-gold); color: var(--deep-blue); padding: 12px 30px; border:none; font-weight: bold; border-radius: 30px; cursor:pointer; margin-top: 15px; font-size:1.1rem;">አሁኑኑ ይመዝገቡ</button>
     </div>
 </section>
 
 <div class="container">
-    <section id="about" style="text-align:center; padding: 40px 0;">
-        <h2 style="color: var(--deep-blue);">ስለ ማዕከላችን</h2>
-        <p style="max-width: 800px; margin: auto;">ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማዕከል ጥንታዊ የሆኑትን የኢትዮጵያ መንፈሳዊና ባህላዊ እሴቶች ለቀጣዩ ትውልድ ሳይበረዙ እንዲተላለፉ በቁርጠኝነት እየሰራ ይገኛል።</p>
+    <section id="about" class="about-section">
+        <h2 style="text-align:center; color: var(--deep-blue);">ስለ ዋይዜማ ማዕከል</h2>
+        <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማዕከል ላለፉት <strong>6 ዓመታት</strong> ጥንታዊ የሆኑትን የኢትዮጵያ መንፈሳዊና ባህላዊ እሴቶች ለቀጣዩ ትውልድ ሳይበረዙ እንዲተላለፉ በቁርጠኝነት እየሰራ ይገኛል።</p>
+    </section>
+
+    <section id="register" class="form-container">
+        <div class="form-header" onclick="toggleForm()">
+            <span><i class="fas fa-user-plus"></i> የምዝገባ ቅጽ ለመሙላት እዚህ ይጫኑ</span>
+            <i class="fas fa-chevron-down" id="arrow"></i>
+        </div>
+        <div class="form-content" id="regForm">
+            <form id="my-form" action="https://formspree.io/f/mqegpkpe" method="POST" class="registration-form">
+                <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
+                <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
+                <div class="form-group"><label>ኢሜይል</label><input type="email" name="email"></div>
+                <div class="form-group full-width"><label>አድራሻ</label><input type="text" name="address"></div>
+                <div class="form-group full-width">
+                    <label>መሠልጠን የሚፈልጉት ዘርፍ</label>
+                    <select name="course">
+                        <option value="በገና">በገና</option>
+                        <option value="ግዕዝ">ግዕዝ</option>
+                        <option value="ሥነ-ሥዕል">ሥነ-ሥዕል</option>
+                        <option value="ቅርጻቅርጽ">ቅርጻቅርጽ</option>
+                        <option value="ክራርና መሰንቆ">ክራርና መሰንቆ</option>
+                    </select>
+                </div>
+                <div class="form-group full-width" style="margin-top: 20px;">
+                    <button type="submit" id="submit-button" class="btn-register-submit">ምዝገባውን አጠናቅቅ</button>
+                    <p id="status"></p>
+                </div>
+            </form>
+        </div>
     </section>
 
     <section id="services">
         <h2 style="text-align:center; color: var(--deep-blue);">የሥልጠና ዘርፎች</h2>
-        <div class="services-grid">
-            <div class="card"><img src="Begena.jpg" alt="በገና"><div class="card-content"><h3>በገና</h3><p>የአሥሩ አውታር ምስጢርና የዳዊት መዝሙር ድርደራ።</p></div></div>
-            <div class="card"><img src="Geez.jpg" alt="ግዕዝ"><div class="card-content"><h3>ግዕዝ</h3><p>የጥበብ መክፈቻ የሆነው ጥንታዊው ቋንቋ።</p></div></div>
-            <div class="card"><img src="ሥዕል.jpg" alt="ሥዕል"><div class="card-content"><h3>ሥነ-ሥዕል</h3><p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ጥበብ።</p></div></div>
+        <div class="services">
+            <div class="card"><div class="card-image"><img src="መዝሙር.jpg" alt="በገና"></div><h3>በገና</h3><p>የአሥሩ አውታር ምስጢርና የዳዊት መዝሙር ድርደራ።</p></div>
+            <div class="card"><div class="card-image"><img src="Geez.jpg" alt="ግዕዝ"></div><h3>ግዕዝ</h3><p>የጥበብ መክፈቻ የሆነውን ጥንታዊውን ቋንቋና ሰዋስው።</p></div>
+            <div class="card"><div class="card-image"><img src="ሥዕል.jpg" alt="ሥነ-ሥዕል"></div><h3>ሥነ-ሥዕል</h3><p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት።</p></div>
+            <div class="card"><div class="card-image"><img src="ቅርጽ.jpg" alt="ቅርጻቅርጽ"></div><h3>ቅርጻቅርጽ</h3><p>በእንጨትና በድንጋይ ላይ የሚቀረጹ ጥበቦች።</p></div>
+            <div class="card"><div class="card-image"><img src="Kirar.jpg" alt="መሰንቆ"></div><h3>ክራርና መሰንቆ</h3><p>መሰንቆና ሌሎች መንፈሳዊ የዜማ መሳርያዎች ሥልጠና።</p></div>
+            <div class="card"><div class="card-image"><img src="ትት.jpg" alt="መንፈሳዊ"></div><h3>መንፈሳዊ ትምህርት</h3><p>ሥርዓተ ቤተክርስቲያንና የሃይማኖት ትምህርቶች።</p></div>
         </div>
     </section>
 
-    <section id="register" class="form-container">
-        <h2 style="text-align:center; color: var(--deep-blue);">የምዝገባ ቅጽ</h2>
-        <form id="enrollForm" action="https://formspree.io/f/mqegpkpe" method="POST" class="registration-form">
-            <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="name" required></div>
-            <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
-            <div class="form-group full-width">
-                <label>የሚፈልጉት የትምህርት ዘርፍ</label>
-                <select name="course">
-                    <option value="በገና">በገና</option>
-                    <option value="ግዕዝ">ግዕዝ</option>
-                    <option value="ሥነ-ሥዕል">ሥነ-ሥዕል</option>
-                </select>
+    <section id="contact" class="contact-info">
+        <div class="contact-details">
+            <h3>ያግኙን</h3>
+            <p><strong>ስልክ:</strong> +251 918 486 017</p>
+            <p><strong>ኢሜይል:</strong> amhasilasienigus@gmail.com</p>
+        </div>
+        <div class="contact-social">
+            <h3>ይከተሉን</h3>
+            <div class="social-icons">
+                <a href="https://t.me/maidetibeb29" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://youtube.com/@wayzemaspritualwisdom" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100064679410445" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://tiktok.com/@wayzemabegenamaseltegna" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
-            <button type="submit" id="submitBtn" class="btn-submit full-width">ምዝገባውን አጠናቅቅ</button>
-        </form>
-        <p id="msg" style="text-align:center; margin-top:15px; font-weight:bold;"></p>
+        </div>
     </section>
 </div>
 
 <footer>
-    <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</p>
-    <p>፲፱/፬/፳፲፰ ዓ.ም ተመሠረተ</p>
-    <div style="margin-top:20px; font-size: 1.5rem;">
-        <a href="https://t.me/maidetibeb29" style="color:white; margin:0 10px;"><i class="fab fa-telegram"></i></a>
-        <a href="#" style="color:white; margin:0 10px;"><i class="fab fa-facebook"></i></a>
-    </div>
-    <a href="admin.html" class="admin-link">Admin Login (Dashboard)</a>
+    <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል ፲፱/፬/፳፲፰ ዓ.ም ተመሠረተ</p>
 </footer>
 
 <script>
-    // Slideshow Logic
+    // 1. Slide Show Logic
     const slideshow = document.getElementById("slideshow");
     const images = slideshow.getElementsByTagName("img");
-    let idx = 0;
-    setInterval(() => {
-        idx = (idx + 1) % images.length;
-        slideshow.style.transform = `translateX(-${idx * 100}%)`;
-    }, 5000);
+    let currentIndex = 0;
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        slideshow.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    setInterval(nextSlide, 5000);
 
-    // Smart Form Submission
-    const form = document.getElementById("enrollForm");
-    form.onsubmit = async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById("submitBtn");
-        const msg = document.getElementById("msg");
-        btn.innerText = "በመላክ ላይ...";
+    // 2. Form Accordion Logic
+    function toggleForm() {
+        const content = document.getElementById("regForm");
+        const arrow = document.getElementById("arrow");
+        content.classList.toggle("active");
+        if (content.classList.contains("active")) {
+            arrow.style.transform = "rotate(180deg)";
+            content.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            arrow.style.transform = "rotate(0deg)";
+        }
+    }
+
+    // 3. Formspree Redirect Bypass Logic
+    var form = document.getElementById("my-form");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("status");
+        var btn = document.getElementById("submit-button");
+        var data = new FormData(event.target);
+        
+        btn.innerHTML = "በመላክ ላይ...";
         btn.disabled = true;
 
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
             headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            window.location.href = "thanks.html"; //
-        } else {
-            msg.innerText = "ስህተት ተፈጥሯል፣ እባክዎ ድጋሚ ይሞክሩ።";
+        }).then(response => {
+            if (response.ok) {
+                // 🟢 በቀጥታ ወደ thanks.html ይሄዳል 🟢
+                window.location.href = "thanks.html";
+            } else {
+                status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
+                btn.disabled = false;
+                btn.innerHTML = "ምዝገባውን አጠናቅቅ";
+            }
+        }).catch(error => {
+            status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
             btn.disabled = false;
-            btn.innerText = "ምዝገባውን አጠናቅቅ";
-        }
-    };
+            btn.innerHTML = "ምዝገባውን አጠናቅቅ";
+        });
+    }
+    form.addEventListener("submit", handleSubmit);
 </script>
 
 </body>

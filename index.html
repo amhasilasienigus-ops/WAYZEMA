@@ -40,7 +40,6 @@
         nav { background: #333; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.9rem; }
 
-        /* Slide Show Styling */
         .hero-slideshow { position: relative; width: 100%; height: 450px; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; }
         .slideshow-images { position: absolute; width: 100%; height: 100%; display: flex; transition: transform 1.2s ease-in-out; }
         .slideshow-images img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
@@ -51,7 +50,6 @@
 
         .about-section { background-image: url('birana.jpg'); background-size: cover; padding: 40px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0; border-left: 10px solid var(--primary-gold); }
 
-        /* Accordion Form */
         .form-container { margin: 40px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
         .form-header { background-color: var(--deep-blue); color: var(--primary-gold); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: bold; border-bottom: 4px solid var(--primary-gold); }
         .form-content { background: white; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease; }
@@ -63,16 +61,19 @@
         .form-group input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
         .form-group.full-width { grid-column: span 2; }
 
-        .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; }
+        .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-register-submit:disabled { background-color: #ccc; cursor: not-allowed; }
         #status { text-align: center; margin-top: 10px; font-weight: bold; }
 
-        .services { display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px; margin-top: 25px; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 25px; }
         .card { background-image: url('birana.jpg'); background-size: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); text-align: center; overflow: hidden; display: flex; flex-direction: column; }
         .card-image img { width: 100%; height: auto; display: block; }
         .card h3 { color: var(--card-text-color); margin: 10px 0; }
 
         .contact-info { background: #eee; padding: 30px; border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; text-align: center; }
         .social-icons a { font-size: 2.2rem; margin: 0 15px; text-decoration: none; }
+        .social-icons a i { transition: 0.3s; }
+        .social-icons a i:hover { transform: scale(1.2); }
         .social-icons a .fa-telegram { color: var(--telegram-color); }
         .social-icons a .fa-youtube { color: var(--youtube-color); }
         .social-icons a .fa-facebook { color: var(--facebook-color); }
@@ -136,7 +137,7 @@
             <i class="fas fa-chevron-down" id="arrow"></i>
         </div>
         <div class="form-content" id="regForm">
-            <form id="my-form" action="https://formspree.io/f/mqegpkpe" method="POST" class="registration-form">
+            <form id="my-form" class="registration-form">
                 <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
                 <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
                 <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
@@ -194,8 +195,25 @@
     <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል ፲፱/፬/፳፲፰ ዓ.ም ተመሠረተ</p>
 </footer>
 
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
 <script>
-    // 1. Slide Show Logic
+    // 1. Firebase Configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyC2IkpuK0DpFVD-bHZ0-cR",
+        authDomain: "wayzema-db.firebaseapp.com",
+        projectId: "wayzema-db",
+        storageBucket: "wayzema-db.firebasestorage.app",
+        messagingSenderId: "897765244862",
+        appId: "1:897765244862:web:9075d8a98f48358249826a",
+        measurementId: "G-7GJW8WKGK8"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // 2. Slide Show Logic
     const slideshow = document.getElementById("slideshow");
     const images = slideshow.getElementsByTagName("img");
     let currentIndex = 0;
@@ -205,7 +223,7 @@
     }
     setInterval(nextSlide, 5000);
 
-    // 2. Form Accordion Logic
+    // 3. Form Accordion Logic
     function toggleForm() {
         const content = document.getElementById("regForm");
         const arrow = document.getElementById("arrow");
@@ -218,37 +236,40 @@
         }
     }
 
-    // 3. Formspree Redirect Bypass Logic
-    var form = document.getElementById("my-form");
-    async function handleSubmit(event) {
-        event.preventDefault();
-        var status = document.getElementById("status");
-        var btn = document.getElementById("submit-button");
-        var data = new FormData(event.target);
+    // 4. Firebase Submission Logic
+    const form = document.getElementById("my-form");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
         
-        btn.innerHTML = "በመላክ ላይ...";
+        const btn = document.getElementById("submit-button");
+        const status = document.getElementById("status");
+        
+        btn.innerHTML = "በመመዝገብ ላይ...";
         btn.disabled = true;
 
-        fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                // 🟢 በቀጥታ ወደ thanks.html ይሄዳል 🟢
+        const formData = new FormData(form);
+        const data = {
+            full_name: formData.get("full_name"),
+            baptism_name: formData.get("baptism_name"),
+            phone: formData.get("phone"),
+            email: formData.get("email"),
+            address: formData.get("address"),
+            course: formData.get("course"),
+            timestamp: new Date().toLocaleString('am-ET')
+        };
+
+        // መረጃውን ወደ Firebase መላክ
+        database.ref('registrations').push(data)
+            .then(() => {
                 window.location.href = "thanks.html";
-            } else {
+            })
+            .catch((error) => {
+                console.error(error);
                 status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
                 btn.disabled = false;
                 btn.innerHTML = "ምዝገባውን አጠናቅቅ";
-            }
-        }).catch(error => {
-            status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
-            btn.disabled = false;
-            btn.innerHTML = "ምዝገባውን አጠናቅቅ";
-        });
-    }
-    form.addEventListener("submit", handleSubmit);
+            });
+    });
 </script>
 
 </body>

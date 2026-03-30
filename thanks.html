@@ -3,139 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ምዝገባው ተሳክቷል - ዋይዜማ</title>
+    <title>ምስጋና - ዋይዜማ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary-gold: #D4AF37;
-            --deep-blue: #003366; 
-            --parchment-bg: #FDF5E6; 
-            --dark-text: #2C2C2C;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--parchment-bg);
-            margin: 0;
-            padding: 0;
-            color: var(--dark-text);
-            line-height: 1.6;
+            font-family: 'Noto Sans Ethiopic', sans-serif;
+            background-color: #FDF5E6;
             display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* ገጹ ሙሉውን ስክሪን እንዲሸፍን */
-        }
-
-        header {
-            background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('birana.jpg');
-            background-size: cover;
-            background-position: center;
-            color: var(--deep-blue);
-            padding: 1.5rem 1rem; 
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             text-align: center;
-            border-bottom: 6px solid var(--primary-gold);
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
         }
-
-        header h1 { margin: 0; font-size: 1.5rem; font-weight: bold; }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-            flex: 1; /* ይዘቱ ያለውን ቦታ ሁሉ እንዲይዝ */
-        }
-
         .message-box {
-            background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('birana.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 40px 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            border: 5px solid var(--primary-gold);
-            max-width: 600px;
-            text-align: center;
-            margin: auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 10px solid #D4AF37;
+            max-width: 500px;
         }
-
-        h2 { color: var(--deep-blue); margin-bottom: 20px; }
-        p { font-size: 1.1rem; line-height: 1.6; color: var(--dark-text); font-weight: 500; }
-        
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 25px;
-            background-color: var(--deep-blue);
-            color: white;
+        i { color: #003366; font-size: 4rem; margin-bottom: 20px; }
+        h1 { color: #003366; font-size: 1.8rem; }
+        p { color: #555; margin-bottom: 30px; }
+        .btn-back {
+            background-color: #D4AF37;
+            color: #003366;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 30px;
             font-weight: bold;
+            border-radius: 30px;
             transition: 0.3s;
         }
-        .btn:hover { background-color: var(--primary-gold); color: var(--deep-blue); }
-
-        .contact-info {
-            background-color: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 40px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border-left: 8px solid var(--primary-gold);
-        }
-
-        .contact-info h3 { color: var(--deep-blue); margin-top: 0; }
-        .contact-info p { margin: 10px 0; }
-
-        .social-links a {
-            display: inline-block;
-            margin-right: 15px;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: var(--deep-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: auto; /* ከስር እንዲጣበቅ */
-            font-size: 0.85rem;
-            border-top: 4px solid var(--primary-gold);
-        }
+        .btn-back:hover { background-color: #003366; color: white; }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</h1>
-    <p>«ጥንታዊውን ጥበብ ለዘመኑ ትውልድ»</p>
-</header>
-
-<div class="container">
     <div class="message-box">
-        <h2>እንኳን ደስ አልዎት!</h2>
-        <p>እንኳን ወደ ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ በደኅና መጡ! የመጀመሪያውን ደረጃ ምዝገባ ሥላጠናቀቁ እንኳን ደስ አልዎት! ወደ ቀጣዩ ደረጃ ለመሔድ በኢሜልዎ ወይም በስልክ ቁጥርዎ የሚደርስዎትን መለያ ቁጥር (user name) ይጠቀሙ።</p>
-        <a href="index.html" class="btn">ወደ መነሻ ገጽ ተመለስ</a>
+        <i class="fas fa-check-circle"></i>
+        <h1>ወደ ዋይዜማ የመንፈሳዊ ጥበባት ማዕከል እንኳን በደኅና መጡ!</h1>
+        <p>ምዝገባዎን በተሳካ ሁኔታ አጠናቀዋል። በቅርቡ በስልክ ቁጥርዎ እናገኝዎታለን።</p>
+        <a href="index.html" class="btn-back">ወደ መነሻ ገጽ ተመለስ</a>
     </div>
-
-    <section id="contact" class="contact-info">
-        <h3>ያግኙን</h3>
-        <p><strong>ስልክ:</strong> +251 918 486 017</p>
-        <p><strong>ኢሜይል:</strong> amhasilasienigus@gmail.com</p>
-        <div class="social-links">
-            <a href="https://t.me/maidetibeb29">Telegram</a>
-            <a href="https://www.facebook.com/profile.php?id=100064679410445">Facebook</a>
-            <a href="https://www.youtube.com/@wayzemaspritualwisdom">YouTube</a> </div>
-    </section>
-</div>
-
-<footer>
-    <p>&copy; 2026 ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</p>
-</footer>
-
 </body>
 </html>

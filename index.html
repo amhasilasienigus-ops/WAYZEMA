@@ -1,276 +1,252 @@
 <!DOCTYPE html>
 <html lang="am">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary-gold: #D4AF37;
-            --deep-blue: #003366; 
-            --parchment-bg: #FDF5E6; 
-            --dark-text: #2C2C2C;
-            --white: #ffffff;
-            --card-text-color: #004d99;
-            --telegram-color: #0088cc;
-            --youtube-color: #ff0000;
-            --facebook-color: #1877f2;
-            --tiktok-color: #010101;
-        }
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-blue: #003366; 
+            --parchment-bg: #FDF5E6; 
+            --dark-text: #2C2C2C;
+            --white: #ffffff;
+            --card-text-color: #004d99;
+            --telegram-color: #0088cc;
+            --youtube-color: #ff0000;
+            --facebook-color: #1877f2;
+            --tiktok-color: #010101;
+        }
 
-        body {
-            font-family: 'Noto Sans Ethiopic', 'Segoe UI', sans-serif;
-            margin: 0; padding: 0;
-            background-color: var(--parchment-bg);
-            color: var(--dark-text);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+        body {
+            font-family: 'Noto Sans Ethiopic', 'Segoe UI', sans-serif;
+            margin: 0; padding: 0;
+            background-color: var(--parchment-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-        .top-bar { background-color: var(--deep-blue); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.85rem; flex-wrap: wrap; }
-        .top-bar-item { display: flex; align-items: center; margin: 2px 0; }
-        .top-bar-item i { color: var(--primary-gold); margin-right: 5px; }
+        .top-bar { background-color: var(--deep-blue); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.85rem; flex-wrap: wrap; }
+        .top-bar-item { display: flex; align-items: center; margin: 2px 0; }
+        .top-bar-item i { color: var(--primary-gold); margin-right: 5px; }
 
-        header { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('HeaderBg.jpg'); background-size: cover; background-position: center; color: white; padding: 2rem 1rem; text-align: center; border-bottom: 8px solid var(--primary-gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        header { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('HeaderBg.jpg'); background-size: cover; background-position: center; color: white; padding: 2rem 1rem; text-align: center; border-bottom: 8px solid var(--primary-gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
 
-        nav { background: #333; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.9rem; }
+        nav { background: #333; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.9rem; }
 
-        .hero-slideshow { position: relative; width: 100%; height: 450px; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; }
-        .slideshow-images { position: absolute; width: 100%; height: 100%; display: flex; transition: transform 1.2s ease-in-out; }
-        .slideshow-images img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
-        .slideshow-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2; }
-        .slideshow-content { position: relative; z-index: 3; color: white; padding: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
+        /* Slide Show Styling */
+        .hero-slideshow { position: relative; width: 100%; height: 450px; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; }
+        .slideshow-images { position: absolute; width: 100%; height: 100%; display: flex; transition: transform 1.2s ease-in-out; }
+        .slideshow-images img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+        .slideshow-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2; }
+        .slideshow-content { position: relative; z-index: 3; color: white; padding: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
 
-        .container { max-width: 1100px; margin: auto; padding: 15px; }
+        .container { max-width: 1100px; margin: auto; padding: 15px; }
 
-        .about-section { background-image: url('birana.jpg'); background-size: cover; padding: 40px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0; border-left: 10px solid var(--primary-gold); }
+        .about-section { background-image: url('birana.jpg'); background-size: cover; padding: 40px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0; border-left: 10px solid var(--primary-gold); }
 
-        .form-container { margin: 40px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-        .form-header { background-color: var(--deep-blue); color: var(--primary-gold); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: bold; border-bottom: 4px solid var(--primary-gold); }
-        .form-content { background: white; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease; }
-        .form-content.active { padding: 40px; max-height: 1200px; }
+        /* Accordion Form */
+        .form-container { margin: 40px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .form-header { background-color: var(--deep-blue); color: var(--primary-gold); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: bold; border-bottom: 4px solid var(--primary-gold); }
+        .form-content { background: white; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease; }
+        .form-content.active { padding: 40px; max-height: 1200px; }
 
-        .registration-form { display: grid; gap: 20px; grid-template-columns: repeat(2, 1fr); }
-        .form-group { display: flex; flex-direction: column; }
-        .form-group label { font-weight: bold; margin-bottom: 5px; color: var(--deep-blue); }
-        .form-group input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
-        .form-group.full-width { grid-column: span 2; }
+        .registration-form { display: grid; gap: 20px; grid-template-columns: repeat(2, 1fr); }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-weight: bold; margin-bottom: 5px; color: var(--deep-blue); }
+        .form-group input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
+        .form-group.full-width { grid-column: span 2; }
 
-        .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
-        .btn-register-submit:disabled { background-color: #ccc; cursor: not-allowed; }
-        #status { text-align: center; margin-top: 10px; font-weight: bold; }
+        .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; }
+        #status { text-align: center; margin-top: 10px; font-weight: bold; }
 
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 25px; }
-        .card { background-image: url('birana.jpg'); background-size: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); text-align: center; overflow: hidden; display: flex; flex-direction: column; }
-        .card-image img { width: 100%; height: auto; display: block; }
-        .card h3 { color: var(--card-text-color); margin: 10px 0; }
+        .services { display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px; margin-top: 25px; }
+        .card { background-image: url('birana.jpg'); background-size: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); text-align: center; overflow: hidden; display: flex; flex-direction: column; }
+        .card-image img { width: 100%; height: auto; display: block; }
+        .card h3 { color: var(--card-text-color); margin: 10px 0; }
 
-        .contact-info { background: #eee; padding: 30px; border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; text-align: center; }
-        .social-icons a { font-size: 2.2rem; margin: 0 15px; text-decoration: none; }
-        .social-icons a i { transition: 0.3s; }
-        .social-icons a i:hover { transform: scale(1.2); }
-        .social-icons a .fa-telegram { color: var(--telegram-color); }
-        .social-icons a .fa-youtube { color: var(--youtube-color); }
-        .social-icons a .fa-facebook { color: var(--facebook-color); }
-        .social-icons a .fa-tiktok { color: var(--tiktok-color); }
+        .contact-info { background: #eee; padding: 30px; border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; text-align: center; }
+        .social-icons a { font-size: 2.2rem; margin: 0 15px; text-decoration: none; }
+        .social-icons a .fa-telegram { color: var(--telegram-color); }
+        .social-icons a .fa-youtube { color: var(--youtube-color); }
+        .social-icons a .fa-facebook { color: var(--facebook-color); }
+        .social-icons a .fa-tiktok { color: var(--tiktok-color); }
 
-        footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 40px; border-top: 5px solid var(--primary-gold); }
+        footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 40px; border-top: 5px solid var(--primary-gold); }
 
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.4rem; }
-            .hero-slideshow { height: 350px; }
-            .registration-form { grid-template-columns: 1fr; }
-            .form-group.full-width { grid-column: span 1; }
-        }
-    </style>
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.4rem; }
+            .hero-slideshow { height: 350px; }
+            .registration-form { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+        }
+    </style>
 </head>
 <body>
 
 <div class="top-bar">
-    <div class="top-bar-item"><i class="fas fa-phone"></i> +251 918 486 017</div>
-    <div class="top-bar-item"><i class="fas fa-envelope"></i> amhasilasienigus@gmail.com</div>
+    <div class="top-bar-item"><i class="fas fa-phone"></i> +251 918 486 017</div>
+    <div class="top-bar-item"><i class="fas fa-envelope"></i> amhasilasienigus@gmail.com</div>
 </div>
 
 <header>
-    <h1>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</h1>
-    <p>«ጥንታዊውን ጥበብ ለዘመኑ ትውልድ»</p>
+    <h1>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</h1>
+    <p>«ጥንታዊውን ጥበብ ለዘመኑ ትውልድ»</p>
 </header>
 
 <nav>
-    <a href="#home">መነሻ</a>
-    <a href="#about">ስለ እኛ</a>
-    <a href="#register">ምዝገባ</a>
-    <a href="#services">ዘርፎች</a>
+    <a href="#home">መነሻ</a>
+    <a href="#about">ስለ እኛ</a>
+    <a href="#register">ምዝገባ</a>
+    <a href="#services">ዘርፎች</a>
 </nav>
 
 <section class="hero-slideshow" id="home">
-    <div class="slideshow-images" id="slideshow">
-        <img src="1.jpg" alt="Slide 1">
-        <img src="2.jpg" alt="Slide 2">
-        <img src="3.jpg" alt="Slide 3">
-        <img src="4.jpg" alt="Slide 4">
-        <img src="5.jpg" alt="Slide 5">
-        <img src="6.jpg" alt="Slide 6">
-    </div>
-    <div class="slideshow-overlay"></div>
-    <div class="slideshow-content">
-        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">የጥበብ መጀመሪያ እግዚአብሔርን መፍራት ነው</h2>
-        <p style="font-size: 1.2rem;">በገና ፣ ሥነ ሥዕል ፣ ቅርጻቅርጽ እና ሌሎችም ጥበባት</p>
-        <button onclick="toggleForm()" style="background-color: var(--primary-gold); color: var(--deep-blue); padding: 12px 30px; border:none; font-weight: bold; border-radius: 30px; cursor:pointer; margin-top: 15px; font-size:1.1rem;">አሁኑኑ ይመዝገቡ</button>
-    </div>
+    <div class="slideshow-images" id="slideshow">
+        <img src="1.jpg" alt="Slide 1">
+        <img src="2.jpg" alt="Slide 2">
+        <img src="3.jpg" alt="Slide 3">
+        <img src="4.jpg" alt="Slide 4">
+        <img src="5.jpg" alt="Slide 5">
+        <img src="6.jpg" alt="Slide 6">
+    </div>
+    <div class="slideshow-overlay"></div>
+    <div class="slideshow-content">
+        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">የጥበብ መጀመሪያ እግዚአብሔርን መፍራት ነው</h2>
+        <p style="font-size: 1.2rem;">በገና ፣ ሥነ ሥዕል ፣ ቅርጻቅርጽ እና ሌሎችም ጥበባት</p>
+        <button onclick="toggleForm()" style="background-color: var(--primary-gold); color: var(--deep-blue); padding: 12px 30px; border:none; font-weight: bold; border-radius: 30px; cursor:pointer; margin-top: 15px; font-size:1.1rem;">አሁኑኑ ይመዝገቡ</button>
+    </div>
 </section>
 
 <div class="container">
-    <section id="about" class="about-section">
-        <h2 style="text-align:center; color: var(--deep-blue);">ስለ ዋይዜማ ማዕከል</h2>
-        <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማዕከል ላለፉት <strong>6 ዓመታት</strong> ጥንታዊ የሆኑትን የኢትዮጵያ መንፈሳዊና ባህላዊ እሴቶች ለቀጣዩ ትውልድ ሳይበረዙ እንዲተላለፉ በቁርጠኝነት እየሰራ ይገኛል።</p>
-    </section>
+    <section id="about" class="about-section">
+        <h2 style="text-align:center; color: var(--deep-blue);">ስለ ዋይዜማ ማዕከል</h2>
+        <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማዕከል ላለፉት <strong>6 ዓመታት</strong> ጥንታዊ የሆኑትን የኢትዮጵያ መንፈሳዊና ባህላዊ እሴቶች ለቀጣዩ ትውልድ ሳይበረዙ እንዲተላለፉ በቁርጠኝነት እየሰራ ይገኛል።</p>
+    </section>
 
-    <section id="register" class="form-container">
-        <div class="form-header" onclick="toggleForm()">
-            <span><i class="fas fa-user-plus"></i> የምዝገባ ቅጽ ለመሙላት እዚህ ይጫኑ</span>
-            <i class="fas fa-chevron-down" id="arrow"></i>
-        </div>
-        <div class="form-content" id="regForm">
-            <form id="my-form" class="registration-form">
-                <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
-                <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
-                <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
-                <div class="form-group"><label>ኢሜይል</label><input type="email" name="email"></div>
-                <div class="form-group full-width"><label>አድራሻ</label><input type="text" name="address"></div>
-                <div class="form-group full-width">
-                    <label>መሠልጠን የሚፈልጉት ዘርፍ</label>
-                    <select name="course">
-                        <option value="በገና">በገና</option>
-                        <option value="ግዕዝ">ግዕዝ</option>
-                        <option value="ሥነ-ሥዕል">ሥነ-ሥዕል</option>
-                        <option value="ቅርጻቅርጽ">ቅርጻቅርጽ</option>
-                        <option value="ክራርና መሰንቆ">ክራርና መሰንቆ</option>
-                    </select>
-                </div>
-                <div class="form-group full-width" style="margin-top: 20px;">
-                    <button type="submit" id="submit-button" class="btn-register-submit">ምዝገባውን አጠናቅቅ</button>
-                    <p id="status"></p>
-                </div>
-            </form>
-        </div>
-    </section>
+    <section id="register" class="form-container">
+        <div class="form-header" onclick="toggleForm()">
+            <span><i class="fas fa-user-plus"></i> የምዝገባ ቅጽ ለመሙላት እዚህ ይጫኑ</span>
+            <i class="fas fa-chevron-down" id="arrow"></i>
+        </div>
+        <div class="form-content" id="regForm">
+            <form id="my-form" action="https://formspree.io/f/mqegpkpe" method="POST" class="registration-form">
+                <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
+                <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
+                <div class="form-group"><label>ኢሜይል</label><input type="email" name="email"></div>
+                <div class="form-group full-width"><label>አድራሻ</label><input type="text" name="address"></div>
+                <div class="form-group full-width">
+                    <label>መሠልጠን የሚፈልጉት ዘርፍ</label>
+                    <select name="course">
+                        <option value="በገና">በገና</option>
+                        <option value="ግዕዝ">ግዕዝ</option>
+                        <option value="ሥነ-ሥዕል">ሥነ-ሥዕል</option>
+                        <option value="ቅርጻቅርጽ">ቅርጻቅርጽ</option>
+                        <option value="ክራርና መሰንቆ">ክራርና መሰንቆ</option>
+                    </select>
+                </div>
+                <div class="form-group full-width" style="margin-top: 20px;">
+                    <button type="submit" id="submit-button" class="btn-register-submit">ምዝገባውን አጠናቅቅ</button>
+                    <p id="status"></p>
+                </div>
+            </form>
+        </div>
+    </section>
 
-    <section id="services">
-        <h2 style="text-align:center; color: var(--deep-blue);">የሥልጠና ዘርፎች</h2>
-        <div class="services">
-            <div class="card"><div class="card-image"><img src="መዝሙር.jpg" alt="በገና"></div><h3>በገና</h3><p>የአሥሩ አውታር ምስጢርና የዳዊት መዝሙር ድርደራ።</p></div>
-            <div class="card"><div class="card-image"><img src="Geez.jpg" alt="ግዕዝ"></div><h3>ግዕዝ</h3><p>የጥበብ መክፈቻ የሆነውን ጥንታዊውን ቋንቋና ሰዋስው።</p></div>
-            <div class="card"><div class="card-image"><img src="ሥዕል.jpg" alt="ሥነ-ሥዕል"></div><h3>ሥነ-ሥዕል</h3><p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት።</p></div>
-            <div class="card"><div class="card-image"><img src="ቅርጽ.jpg" alt="ቅርጻቅርጽ"></div><h3>ቅርጻቅርጽ</h3><p>በእንጨትና በድንጋይ ላይ የሚቀረጹ ጥበቦች።</p></div>
-            <div class="card"><div class="card-image"><img src="Kirar.jpg" alt="መሰንቆ"></div><h3>ክራርና መሰንቆ</h3><p>መሰንቆና ሌሎች መንፈሳዊ የዜማ መሳርያዎች ሥልጠና።</p></div>
-            <div class="card"><div class="card-image"><img src="ትት.jpg" alt="መንፈሳዊ"></div><h3>መንፈሳዊ ትምህርት</h3><p>ሥርዓተ ቤተክርስቲያንና የሃይማኖት ትምህርቶች።</p></div>
-        </div>
-    </section>
+    <section id="services">
+        <h2 style="text-align:center; color: var(--deep-blue);">የሥልጠና ዘርፎች</h2>
+        <div class="services">
+            <div class="card"><div class="card-image"><img src="መዝሙር.jpg" alt="በገና"></div><h3>በገና</h3><p>የአሥሩ አውታር ምስጢርና የዳዊት መዝሙር ድርደራ።</p></div>
+            <div class="card"><div class="card-image"><img src="Geez.jpg" alt="ግዕዝ"></div><h3>ግዕዝ</h3><p>የጥበብ መክፈቻ የሆነውን ጥንታዊውን ቋንቋና ሰዋስው።</p></div>
+            <div class="card"><div class="card-image"><img src="ሥዕል.jpg" alt="ሥነ-ሥዕል"></div><h3>ሥነ-ሥዕል</h3><p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት።</p></div>
+            <div class="card"><div class="card-image"><img src="ቅርጽ.jpg" alt="ቅርጻቅርጽ"></div><h3>ቅርጻቅርጽ</h3><p>በእንጨትና በድንጋይ ላይ የሚቀረጹ ጥበቦች።</p></div>
+            <div class="card"><div class="card-image"><img src="Kirar.jpg" alt="መሰንቆ"></div><h3>ክራርና መሰንቆ</h3><p>መሰንቆና ሌሎች መንፈሳዊ የዜማ መሳርያዎች ሥልጠና።</p></div>
+            <div class="card"><div class="card-image"><img src="ትት.jpg" alt="መንፈሳዊ"></div><h3>መንፈሳዊ ትምህርት</h3><p>ሥርዓተ ቤተክርስቲያንና የሃይማኖት ትምህርቶች።</p></div>
+        </div>
+    </section>
 
-    <section id="contact" class="contact-info">
-        <div class="contact-details">
-            <h3>ያግኙን</h3>
-            <p><strong>ስልክ:</strong> +251 918 486 017</p>
-            <p><strong>ኢሜይል:</strong> amhasilasienigus@gmail.com</p>
-        </div>
-        <div class="contact-social">
-            <h3>ይከተሉን</h3>
-            <div class="social-icons">
-                <a href="https://t.me/maidetibeb29" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="https://youtube.com/@wayzemaspritualwisdom" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100064679410445" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://tiktok.com/@wayzemabegenamaseltegna" target="_blank"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
-    </section>
+    <section id="contact" class="contact-info">
+        <div class="contact-details">
+            <h3>ያግኙን</h3>
+            <p><strong>ስልክ:</strong> +251 918 486 017</p>
+            <p><strong>ኢሜይል:</strong> amhasilasienigus@gmail.com</p>
+        </div>
+        <div class="contact-social">
+            <h3>ይከተሉን</h3>
+            <div class="social-icons">
+                <a href="https://t.me/maidetibeb29" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://youtube.com/@wayzemaspritualwisdom" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100064679410445" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://tiktok.com/@wayzemabegenamaseltegna" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </section>
 </div>
 
 <footer>
-    <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል ፲፱/፬/፳፲፰ ዓ.ም ተመሠረተ</p>
+    <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል ፲፱/፬/፳፲፰ ዓ.ም ተመሠረተ</p>
 </footer>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-
 <script>
-    // 1. Firebase Configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyC2IkpuK0DpFVD-bHZ0-cR",
-        authDomain: "wayzema-db.firebaseapp.com",
-        projectId: "wayzema-db",
-        storageBucket: "wayzema-db.firebasestorage.app",
-        messagingSenderId: "897765244862",
-        appId: "1:897765244862:web:9075d8a98f48358249826a",
-        measurementId: "G-7GJW8WKGK8"
-    };
+    // 1. Slide Show Logic
+    const slideshow = document.getElementById("slideshow");
+    const images = slideshow.getElementsByTagName("img");
+    let currentIndex = 0;
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        slideshow.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    setInterval(nextSlide, 5000);
 
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
+    // 2. Form Accordion Logic
+    function toggleForm() {
+        const content = document.getElementById("regForm");
+        const arrow = document.getElementById("arrow");
+        content.classList.toggle("active");
+        if (content.classList.contains("active")) {
+            arrow.style.transform = "rotate(180deg)";
+            content.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            arrow.style.transform = "rotate(0deg)";
+        }
+    }
 
-    // 2. Slide Show Logic
-    const slideshow = document.getElementById("slideshow");
-    const images = slideshow.getElementsByTagName("img");
-    let currentIndex = 0;
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % images.length;
-        slideshow.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-    setInterval(nextSlide, 5000);
+    // 3. Formspree Redirect Bypass Logic
+    var form = document.getElementById("my-form");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("status");
+        var btn = document.getElementById("submit-button");
+        var data = new FormData(event.target);
+        
+        btn.innerHTML = "በመላክ ላይ...";
+        btn.disabled = true;
 
-    // 3. Form Accordion Logic
-    function toggleForm() {
-        const content = document.getElementById("regForm");
-        const arrow = document.getElementById("arrow");
-        content.classList.toggle("active");
-        if (content.classList.contains("active")) {
-            arrow.style.transform = "rotate(180deg)";
-            content.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            arrow.style.transform = "rotate(0deg)";
-        }
-    }
-
-    // 4. Firebase Submission Logic
-    const form = document.getElementById("my-form");
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        
-        const btn = document.getElementById("submit-button");
-        const status = document.getElementById("status");
-        
-        btn.innerHTML = "በመመዝገብ ላይ...";
-        btn.disabled = true;
-
-        const formData = new FormData(form);
-        const data = {
-            full_name: formData.get("full_name"),
-            baptism_name: formData.get("baptism_name"),
-            phone: formData.get("phone"),
-            email: formData.get("email"),
-            address: formData.get("address"),
-            course: formData.get("course"),
-            timestamp: new Date().toLocaleString('am-ET')
-        };
-
-        // መረጃውን ወደ Firebase መላክ
-        database.ref('registrations').push(data)
-            .then(() => {
-                window.location.href = "thanks.html";
-            })
-            .catch((error) => {
-                console.error(error);
-                status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
-                btn.disabled = false;
-                btn.innerHTML = "ምዝገባውን አጠናቅቅ";
-            });
-    });
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                // 🟢 በቀጥታ ወደ thanks.html ይሄዳል 🟢
+                window.location.href = "thanks.html";
+            } else {
+                status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
+                btn.disabled = false;
+                btn.innerHTML = "ምዝገባውን አጠናቅቅ";
+            }
+        }).catch(error => {
+            status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
+            btn.disabled = false;
+            btn.innerHTML = "ምዝገባውን አጠናቅቅ";
+        });
+    }
+    form.addEventListener("submit", handleSubmit);
 </script>
-
-</body>
-</html>

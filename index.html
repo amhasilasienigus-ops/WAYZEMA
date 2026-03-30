@@ -40,7 +40,7 @@
         nav { background: #333; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.9rem; }
 
-        /* Slide Show (Hero Section) Styling */
+        /* Slide Show Styling */
         .hero-slideshow { position: relative; width: 100%; height: 450px; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; }
         .slideshow-images { position: absolute; width: 100%; height: 100%; display: flex; transition: transform 1.2s ease-in-out; }
         .slideshow-images img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
@@ -49,9 +49,9 @@
 
         .container { max-width: 1100px; margin: auto; padding: 15px; }
 
-        /* Sections */
         .about-section { background-image: url('birana.jpg'); background-size: cover; padding: 40px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0; border-left: 10px solid var(--primary-gold); }
 
+        /* Accordion Form */
         .form-container { margin: 40px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
         .form-header { background-color: var(--deep-blue); color: var(--primary-gold); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: bold; border-bottom: 4px solid var(--primary-gold); }
         .form-content { background: white; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease; }
@@ -64,6 +64,7 @@
         .form-group.full-width { grid-column: span 2; }
 
         .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; }
+        #status { text-align: center; margin-top: 10px; font-weight: bold; }
 
         .services { display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px; margin-top: 25px; }
         .card { background-image: url('birana.jpg'); background-size: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); text-align: center; overflow: hidden; display: flex; flex-direction: column; }
@@ -135,8 +136,7 @@
             <i class="fas fa-chevron-down" id="arrow"></i>
         </div>
         <div class="form-content" id="regForm">
-            <form class="registration-form" action="https://formspree.io/f/mqegpkpe" method="POST">
-                <input type="hidden" name="_next" value="https://amhasilasienigus-ops.github.io/WAYZEMA/thanks.html">
+            <form id="my-form" action="https://formspree.io/f/mqegpkpe" method="POST" class="registration-form">
                 <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
                 <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
                 <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
@@ -153,7 +153,8 @@
                     </select>
                 </div>
                 <div class="form-group full-width" style="margin-top: 20px;">
-                    <button type="submit" class="btn-register-submit">ምዝገባውን አጠናቅቅ</button>
+                    <button type="submit" id="submit-button" class="btn-register-submit">ምዝገባውን አጠናቅቅ</button>
+                    <p id="status"></p>
                 </div>
             </form>
         </div>
@@ -194,18 +195,17 @@
 </footer>
 
 <script>
-    // Slide Show Logic
+    // 1. Slide Show Logic
     const slideshow = document.getElementById("slideshow");
     const images = slideshow.getElementsByTagName("img");
     let currentIndex = 0;
-
     function nextSlide() {
         currentIndex = (currentIndex + 1) % images.length;
         slideshow.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
-    setInterval(nextSlide, 5000); // 5 ሰከንድ
+    setInterval(nextSlide, 5000);
 
-    // Form Dropdown Logic
+    // 2. Form Accordion Logic
     function toggleForm() {
         const content = document.getElementById("regForm");
         const arrow = document.getElementById("arrow");
@@ -217,6 +217,38 @@
             arrow.style.transform = "rotate(0deg)";
         }
     }
+
+    // 3. Formspree Redirect Bypass Logic
+    var form = document.getElementById("my-form");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("status");
+        var btn = document.getElementById("submit-button");
+        var data = new FormData(event.target);
+        
+        btn.innerHTML = "በመላክ ላይ...";
+        btn.disabled = true;
+
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                // 🟢 በቀጥታ ወደ thanks.html ይሄዳል 🟢
+                window.location.href = "thanks.html";
+            } else {
+                status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
+                btn.disabled = false;
+                btn.innerHTML = "ምዝገባውን አጠናቅቅ";
+            }
+        }).catch(error => {
+            status.innerHTML = "ስህተት ተፈጥሯል፤ እባክዎ ድጋሚ ይሞክሩ።";
+            btn.disabled = false;
+            btn.innerHTML = "ምዝገባውን አጠናቅቅ";
+        });
+    }
+    form.addEventListener("submit", handleSubmit);
 </script>
 
 </body>

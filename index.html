@@ -31,7 +31,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Top Bar & Header */
         .top-bar { background-color: var(--deep-blue); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.85rem; flex-wrap: wrap; }
         .top-bar-item { display: flex; align-items: center; margin: 2px 0; }
         .top-bar-item i { color: var(--primary-gold); margin-right: 5px; }
@@ -41,24 +40,20 @@
         nav { background: #333; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; }
         nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.9rem; }
 
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Begena.jpg'); background-size: cover; background-position: center; color: white; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        /* Slide Show (Hero Section) Styling */
+        .hero-slideshow { position: relative; width: 100%; height: 450px; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; }
+        .slideshow-images { position: absolute; width: 100%; height: 100%; display: flex; transition: transform 1.2s ease-in-out; }
+        .slideshow-images img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+        .slideshow-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2; }
+        .slideshow-content { position: relative; z-index: 3; color: white; padding: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
 
         .container { max-width: 1100px; margin: auto; padding: 15px; }
 
         /* Sections */
         .about-section { background-image: url('birana.jpg'); background-size: cover; padding: 40px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0; border-left: 10px solid var(--primary-gold); }
 
-        .services { display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px; margin-top: 25px; }
-        .card { background-image: url('birana.jpg'); background-size: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); text-align: center; overflow: hidden; display: flex; flex-direction: column; height: auto; }
-        .card-image img { width: 100%; height: auto; display: block; }
-        .card h3 { color: var(--card-text-color); margin: 10px 0; font-size: 1.1rem; }
-        .card p { padding: 0 10px 15px 10px; font-size: 0.85rem; }
-
-        /* Dropdown Registration Form Style */
         .form-container { margin: 40px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
         .form-header { background-color: var(--deep-blue); color: var(--primary-gold); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: bold; border-bottom: 4px solid var(--primary-gold); }
-        .form-header:hover { background-color: #002244; }
-        
         .form-content { background: white; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease; }
         .form-content.active { padding: 40px; max-height: 1200px; }
 
@@ -68,10 +63,13 @@
         .form-group input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
         .form-group.full-width { grid-column: span 2; }
 
-        .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
-        .btn-register-submit:hover { background-color: var(--deep-blue); color: white; }
+        .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; }
 
-        /* Footer & Others */
+        .services { display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px; margin-top: 25px; }
+        .card { background-image: url('birana.jpg'); background-size: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); text-align: center; overflow: hidden; display: flex; flex-direction: column; }
+        .card-image img { width: 100%; height: auto; display: block; }
+        .card h3 { color: var(--card-text-color); margin: 10px 0; }
+
         .contact-info { background: #eee; padding: 30px; border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; text-align: center; }
         .social-icons a { font-size: 2.2rem; margin: 0 15px; text-decoration: none; }
         .social-icons a .fa-telegram { color: var(--telegram-color); }
@@ -83,6 +81,7 @@
 
         @media (max-width: 600px) {
             header h1 { font-size: 1.4rem; }
+            .hero-slideshow { height: 350px; }
             .registration-form { grid-template-columns: 1fr; }
             .form-group.full-width { grid-column: span 1; }
         }
@@ -103,14 +102,25 @@
 <nav>
     <a href="#home">መነሻ</a>
     <a href="#about">ስለ እኛ</a>
-    <a href="#services">ዘርፎች</a>
     <a href="#register">ምዝገባ</a>
+    <a href="#services">ዘርፎች</a>
 </nav>
 
-<section class="hero" id="home">
-    <h2 style="font-size: 2rem; margin-bottom: 10px;">የጥበብ መጀመሪያ እግዚአብሔርን መፍራት ነው</h2>
-    <p style="font-size: 1.1rem;">በገና ፣ ሥነ ሥዕል ፣ ቅርጻቅርጽ እና ሌሎችም ጥበባት</p>
-    <button onclick="toggleForm()" style="background-color: var(--primary-gold); color: var(--deep-blue); padding: 12px 25px; border:none; font-weight: bold; border-radius: 30px; cursor:pointer; margin-top: 15px;">አሁኑኑ ይመዝገቡ</button>
+<section class="hero-slideshow" id="home">
+    <div class="slideshow-images" id="slideshow">
+        <img src="1.jpg" alt="Slide 1">
+        <img src="2.jpg" alt="Slide 2">
+        <img src="3.jpg" alt="Slide 3">
+        <img src="4.jpg" alt="Slide 4">
+        <img src="5.jpg" alt="Slide 5">
+        <img src="6.jpg" alt="Slide 6">
+    </div>
+    <div class="slideshow-overlay"></div>
+    <div class="slideshow-content">
+        <h2 style="font-size: 2.2rem; margin-bottom: 10px;">የጥበብ መጀመሪያ እግዚአብሔርን መፍራት ነው</h2>
+        <p style="font-size: 1.2rem;">በገና ፣ ሥነ ሥዕል ፣ ቅርጻቅርጽ እና ሌሎችም ጥበባት</p>
+        <button onclick="toggleForm()" style="background-color: var(--primary-gold); color: var(--deep-blue); padding: 12px 30px; border:none; font-weight: bold; border-radius: 30px; cursor:pointer; margin-top: 15px; font-size:1.1rem;">አሁኑኑ ይመዝገቡ</button>
+    </div>
 </section>
 
 <div class="container">
@@ -127,7 +137,6 @@
         <div class="form-content" id="regForm">
             <form class="registration-form" action="https://formspree.io/f/mqegpkpe" method="POST">
                 <input type="hidden" name="_next" value="https://amhasilasienigus-ops.github.io/WAYZEMA/thanks.html">
-                
                 <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
                 <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
                 <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
@@ -185,11 +194,22 @@
 </footer>
 
 <script>
+    // Slide Show Logic
+    const slideshow = document.getElementById("slideshow");
+    const images = slideshow.getElementsByTagName("img");
+    let currentIndex = 0;
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        slideshow.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    setInterval(nextSlide, 5000); // 5 ሰከንድ
+
+    // Form Dropdown Logic
     function toggleForm() {
         const content = document.getElementById("regForm");
         const arrow = document.getElementById("arrow");
         content.classList.toggle("active");
-        
         if (content.classList.contains("active")) {
             arrow.style.transform = "rotate(180deg)";
             content.scrollIntoView({ behavior: 'smooth' });

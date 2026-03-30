@@ -24,125 +24,43 @@
 
         body {
             font-family: 'Noto Sans Ethiopic', 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: var(--parchment-bg);
             color: var(--dark-text);
             line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        .top-bar {
-            background-color: var(--deep-blue);
-            color: white;
-            padding: 8px 5%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            flex-wrap: wrap;
-        }
+        /* Top Bar & Header */
+        .top-bar { background-color: var(--deep-blue); color: white; padding: 8px 5%; display: flex; justify-content: space-between; font-size: 0.85rem; flex-wrap: wrap; }
         .top-bar-item { display: flex; align-items: center; margin: 2px 0; }
         .top-bar-item i { color: var(--primary-gold); margin-right: 5px; }
 
-        header {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('HeaderBg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 2rem 1rem; 
-            text-align: center;
-            border-bottom: 8px solid var(--primary-gold);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
+        header { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('HeaderBg.jpg'); background-size: cover; background-position: center; color: white; padding: 2rem 1rem; text-align: center; border-bottom: 8px solid var(--primary-gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
 
-        nav {
-            background: #333;
-            padding: 12px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        nav { background: #333; padding: 12px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.9rem; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Begena.jpg'); background-size: cover; background-position: center; color: white; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
 
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Begena.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            height: 350px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
+        .container { max-width: 1100px; margin: auto; padding: 15px; }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 15px;
-        }
+        /* Sections */
+        .about-section { background-image: url('birana.jpg'); background-size: cover; padding: 40px 20px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0; border-left: 10px solid var(--primary-gold); }
 
-        .about-section {
-            background-image: url('birana.jpg');
-            background-size: cover;
-            padding: 40px 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            margin: 25px 0;
-            border-left: 10px solid var(--primary-gold);
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr); 
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .card {
-            background-image: url('birana.jpg');
-            background-size: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-top: 5px solid var(--primary-gold);
-            text-align: center;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: auto; 
-        }
-
+        .services { display: grid; grid-template-columns: repeat(1, 1fr); gap: 15px; margin-top: 25px; }
+        .card { background-image: url('birana.jpg'); background-size: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); text-align: center; overflow: hidden; display: flex; flex-direction: column; height: auto; }
         .card-image img { width: 100%; height: auto; display: block; }
         .card h3 { color: var(--card-text-color); margin: 10px 0; font-size: 1.1rem; }
         .card p { padding: 0 10px 15px 10px; font-size: 0.85rem; }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-        }
-        .gallery-item { height: 150px; border: 2px solid var(--primary-gold); border-radius: 5px; overflow: hidden; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-
-        .form-section {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-top: 6px solid var(--deep-blue);
-        }
+        /* Dropdown Registration Form Style */
+        .form-container { margin: 40px 0; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .form-header { background-color: var(--deep-blue); color: var(--primary-gold); padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; font-weight: bold; border-bottom: 4px solid var(--primary-gold); }
+        .form-header:hover { background-color: #002244; }
+        
+        .form-content { background: white; padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease; }
+        .form-content.active { padding: 40px; max-height: 1200px; }
 
         .registration-form { display: grid; gap: 20px; grid-template-columns: repeat(2, 1fr); }
         .form-group { display: flex; flex-direction: column; }
@@ -150,44 +68,18 @@
         .form-group input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
         .form-group.full-width { grid-column: span 2; }
 
-        .btn-register-submit {
-            background-color: var(--primary-gold);
-            color: var(--deep-blue);
-            padding: 15px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-        }
+        .btn-register-submit { background-color: var(--primary-gold); color: var(--deep-blue); padding: 15px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-register-submit:hover { background-color: var(--deep-blue); color: white; }
 
-        .contact-info {
-            background: #eee;
-            padding: 30px;
-            border-radius: 8px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .social-icons { display: flex; justify-content: center; align-items: center; margin-top: 15px; }
+        /* Footer & Others */
+        .contact-info { background: #eee; padding: 30px; border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; text-align: center; }
         .social-icons a { font-size: 2.2rem; margin: 0 15px; text-decoration: none; }
         .social-icons a .fa-telegram { color: var(--telegram-color); }
         .social-icons a .fa-youtube { color: var(--youtube-color); }
         .social-icons a .fa-facebook { color: var(--facebook-color); }
         .social-icons a .fa-tiktok { color: var(--tiktok-color); }
 
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            border-top: 5px solid var(--primary-gold);
-        }
+        footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 40px; border-top: 5px solid var(--primary-gold); }
 
         @media (max-width: 600px) {
             header h1 { font-size: 1.4rem; }
@@ -212,14 +104,13 @@
     <a href="#home">መነሻ</a>
     <a href="#about">ስለ እኛ</a>
     <a href="#services">ዘርፎች</a>
-    <a href="#gallery">ጋለሪ</a>
     <a href="#register">ምዝገባ</a>
 </nav>
 
 <section class="hero" id="home">
     <h2 style="font-size: 2rem; margin-bottom: 10px;">የጥበብ መጀመሪያ እግዚአብሔርን መፍራት ነው</h2>
     <p style="font-size: 1.1rem;">በገና ፣ ሥነ ሥዕል ፣ ቅርጻቅርጽ እና ሌሎችም ጥበባት</p>
-    <a href="#register" style="background-color: var(--primary-gold); color: var(--deep-blue); padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; margin-top: 15px;">አሁኑኑ ይመዝገቡ</a>
+    <button onclick="toggleForm()" style="background-color: var(--primary-gold); color: var(--deep-blue); padding: 12px 25px; border:none; font-weight: bold; border-radius: 30px; cursor:pointer; margin-top: 15px;">አሁኑኑ ይመዝገቡ</button>
 </section>
 
 <div class="container">
@@ -228,74 +119,47 @@
         <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማዕከል ላለፉት <strong>6 ዓመታት</strong> ጥንታዊ የሆኑትን የኢትዮጵያ መንፈሳዊና ባህላዊ እሴቶች ለቀጣዩ ትውልድ ሳይበረዙ እንዲተላለፉ በቁርጠኝነት እየሰራ ይገኛል።</p>
     </section>
 
+    <section id="register" class="form-container">
+        <div class="form-header" onclick="toggleForm()">
+            <span><i class="fas fa-user-plus"></i> የምዝገባ ቅጽ ለመሙላት እዚህ ይጫኑ</span>
+            <i class="fas fa-chevron-down" id="arrow"></i>
+        </div>
+        <div class="form-content" id="regForm">
+            <form class="registration-form" action="https://formspree.io/f/mqegpkpe" method="POST">
+                <input type="hidden" name="_next" value="https://amhasilasienigus-ops.github.io/WAYZEMA/thanks.html">
+                
+                <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
+                <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
+                <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
+                <div class="form-group"><label>ኢሜይል</label><input type="email" name="email"></div>
+                <div class="form-group full-width"><label>አድራሻ</label><input type="text" name="address"></div>
+                <div class="form-group full-width">
+                    <label>መሠልጠን የሚፈልጉት ዘርፍ</label>
+                    <select name="course">
+                        <option value="በገና">በገና</option>
+                        <option value="ግዕዝ">ግዕዝ</option>
+                        <option value="ሥነ-ሥዕል">ሥነ-ሥዕል</option>
+                        <option value="ቅርጻቅርጽ">ቅርጻቅርጽ</option>
+                        <option value="ክራርና መሰንቆ">ክራርና መሰንቆ</option>
+                    </select>
+                </div>
+                <div class="form-group full-width" style="margin-top: 20px;">
+                    <button type="submit" class="btn-register-submit">ምዝገባውን አጠናቅቅ</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <section id="services">
         <h2 style="text-align:center; color: var(--deep-blue);">የሥልጠና ዘርፎች</h2>
         <div class="services">
-            <div class="card">
-                <div class="card-image"><img src="መዝሙር.jpg" alt="በገና"></div>
-                <h3>በገና</h3>
-                <p>የአሥሩ አውታር ምስጢርና የዳዊት መዝሙር ድርደራ።</p>
-            </div>
-            <div class="card">
-                <div class="card-image"><img src="Geez.jpg" alt="ግዕዝ"></div>
-                <h3>ግዕዝ</h3>
-                <p>የጥበብ መክፈቻ የሆነውን ጥንታዊውን ቋንቋና ሰዋስው።</p>
-            </div>
-            <div class="card">
-                <div class="card-image"><img src="ሥዕል.jpg" alt="ሥነ-ሥዕል"></div>
-                <h3>ሥነ-ሥዕል</h3>
-                <p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት።</p>
-            </div>
-            <div class="card">
-                <div class="card-image"><img src="ቅርጽ.jpg" alt="ቅርጻቅርጽ"></div>
-                <h3>ቅርጻቅርጽ</h3>
-                <p>በእንጨትና በድንጋይ ላይ የሚቀረጹ ጥበቦች።</p>
-            </div>
-            <div class="card">
-                <div class="card-image"><img src="Kirar.jpg" alt="መሰንቆና የዜማ መሳርያዎች"></div>
-                <h3>ክራርና መሰንቆ</h3>
-                <p>መሰንቆና ሌሎች መንፈሳዊ የዜማ መሳርያዎች ሥልጠና።</p>
-            </div>
-            <div class="card">
-                <div class="card-image"><img src="ትት.jpg" alt="መንፈሳዊ ትምህርት"></div>
-                <h3>መንፈሳዊ ትምህርት</h3>
-                <p>ሥርዓተ ቤተክርስቲያንና የሃይማኖት ትምህርቶች።</p>
-            </div>
+            <div class="card"><div class="card-image"><img src="መዝሙር.jpg" alt="በገና"></div><h3>በገና</h3><p>የአሥሩ አውታር ምስጢርና የዳዊት መዝሙር ድርደራ።</p></div>
+            <div class="card"><div class="card-image"><img src="Geez.jpg" alt="ግዕዝ"></div><h3>ግዕዝ</h3><p>የጥበብ መክፈቻ የሆነውን ጥንታዊውን ቋንቋና ሰዋስው።</p></div>
+            <div class="card"><div class="card-image"><img src="ሥዕል.jpg" alt="ሥነ-ሥዕል"></div><h3>ሥነ-ሥዕል</h3><p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት።</p></div>
+            <div class="card"><div class="card-image"><img src="ቅርጽ.jpg" alt="ቅርጻቅርጽ"></div><h3>ቅርጻቅርጽ</h3><p>በእንጨትና በድንጋይ ላይ የሚቀረጹ ጥበቦች።</p></div>
+            <div class="card"><div class="card-image"><img src="Kirar.jpg" alt="መሰንቆ"></div><h3>ክራርና መሰንቆ</h3><p>መሰንቆና ሌሎች መንፈሳዊ የዜማ መሳርያዎች ሥልጠና።</p></div>
+            <div class="card"><div class="card-image"><img src="ትት.jpg" alt="መንፈሳዊ"></div><h3>መንፈሳዊ ትምህርት</h3><p>ሥርዓተ ቤተክርስቲያንና የሃይማኖት ትምህርቶች።</p></div>
         </div>
-    </section>
-
-    <section id="gallery">
-        <h2 style="text-align:center; color: var(--deep-blue); margin-top: 40px;">የጥበብ ጋለሪ</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="መዝሙር.jpg" alt="Gallery"></div>
-            <div class="gallery-item"><img src="ሥዕል.jpg" alt="Gallery"></div>
-            <div class="gallery-item"><img src="ቅርጽ.jpg" alt="Gallery"></div>
-            <div class="gallery-item"><img src="Kirar.jpg" alt="Gallery"></div>
-        </div>
-    </section>
-
-    <section id="register" class="form-section">
-        <h2>የምዝገባ ቅጽ</h2>
-        <form class="registration-form" action="https://formspree.io/f/mqegpkpe" method="POST">
-            <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
-            <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
-            <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
-            <div class="form-group"><label>ኢሜይል</label><input type="email" name="email"></div>
-            <div class="form-group full-width"><label>አድራሻ</label><input type="text" name="address"></div>
-            <div class="form-group full-width">
-                <label>መሠልጠን የሚፈልጉት ዘርፍ</label>
-                <select name="course">
-                    <option value="በገና">በገና</option>
-                    <option value="ግዕዝ">ግዕዝ</option>
-                    <option value="ሥነ-ሥዕል">ሥነ-ሥዕል</option>
-                    <option value="ቅርጻቅርጽ">ቅርጻቅርጽ</option>
-                    <option value="ክራርና መሰንቆ">ክራርና መሰንቆ</option>
-                </select>
-            </div>
-            <div class="form-group full-width" style="margin-top: 20px;">
-                <button type="submit" class="btn-register-submit">ምዝገባውን አጠናቅቅ</button>
-            </div>
-        </form>
     </section>
 
     <section id="contact" class="contact-info">
@@ -319,6 +183,21 @@
 <footer>
     <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል ፲፱/፬/፳፲፰ ዓ.ም ተመሠረተ</p>
 </footer>
+
+<script>
+    function toggleForm() {
+        const content = document.getElementById("regForm");
+        const arrow = document.getElementById("arrow");
+        content.classList.toggle("active");
+        
+        if (content.classList.contains("active")) {
+            arrow.style.transform = "rotate(180deg)";
+            content.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            arrow.style.transform = "rotate(0deg)";
+        }
+    }
+</script>
 
 </body>
 </html>

@@ -14,6 +14,12 @@
             --deep-blue: #003366; 
             --parchment-bg: #FDF5E6; 
             --dark-text: #2C2C2C;
+            --white: #ffffff;
+            --card-text-color: #004d99;
+            --telegram-color: #0088cc;
+            --youtube-color: #ff0000;
+            --facebook-color: #1877f2;
+            --tiktok-color: #010101;
         }
 
         body {
@@ -26,7 +32,6 @@
             scroll-behavior: smooth;
         }
 
-        /* የራስጌ መረጃ (Top Contact Bar) */
         .top-bar {
             background-color: var(--deep-blue);
             color: white;
@@ -36,7 +41,8 @@
             font-size: 0.85rem;
             flex-wrap: wrap;
         }
-        .top-bar a { color: var(--primary-gold); text-decoration: none; }
+        .top-bar-item { display: flex; align-items: center; margin: 2px 0; }
+        .top-bar-item i { color: var(--primary-gold); margin-right: 5px; }
 
         header {
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('HeaderBg.jpg');
@@ -94,13 +100,11 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             margin: 25px 0;
             border-left: 10px solid var(--primary-gold);
-            position: relative;
-            z-index: 1;
         }
 
         .services {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); 
+            grid-template-columns: repeat(1, 1fr); 
             gap: 15px;
             margin-top: 25px;
         }
@@ -112,72 +116,69 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             border-top: 5px solid var(--primary-gold);
             text-align: center;
-            transition: 0.3s;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            height: auto; 
         }
 
-        .card:hover { transform: translateY(-5px); }
-
-        .card-image {
-            width: 100%;
-            height: 150px;
-            background-size: cover;
-            background-position: center;
-            background-color: #eee;
-        }
-
-        .card h3 { color: var(--deep-blue); margin: 10px 0; font-size: 1.1rem; }
+        .card-image img { width: 100%; height: auto; display: block; }
+        .card h3 { color: var(--card-text-color); margin: 10px 0; font-size: 1.1rem; }
         .card p { padding: 0 10px 15px 10px; font-size: 0.85rem; }
 
-        /* ጋለሪ ክፍል */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             margin: 20px 0;
         }
-        .gallery-item {
-            height: 150px;
-            border: 2px solid var(--primary-gold);
-            border-radius: 5px;
-            overflow: hidden;
-        }
+        .gallery-item { height: 150px; border: 2px solid var(--primary-gold); border-radius: 5px; overflow: hidden; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 
         .form-section {
             background: white;
-            padding: 30px;
+            padding: 40px;
             border-radius: 15px;
-            margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 40px 0;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--deep-blue);
         }
 
-        .registration-form { display: grid; gap: 15px; }
+        .registration-form { display: grid; gap: 20px; grid-template-columns: repeat(2, 1fr); }
         .form-group { display: flex; flex-direction: column; }
-        .form-group input, select { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .form-group label { font-weight: bold; margin-bottom: 5px; color: var(--deep-blue); }
+        .form-group input, select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; }
+        .form-group.full-width { grid-column: span 2; }
 
-        .btn-register {
+        .btn-register-submit {
             background-color: var(--primary-gold);
             color: var(--deep-blue);
-            padding: 12px 25px;
-            text-decoration: none;
-            font-weight: bold;
+            padding: 15px;
+            border: none;
             border-radius: 30px;
-            display: inline-block;
-            margin-top: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
         }
 
         .contact-info {
             background: #eee;
-            padding: 25px;
+            padding: 30px;
             border-radius: 8px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            text-align: center;
         }
+
+        .social-icons { display: flex; justify-content: center; align-items: center; margin-top: 15px; }
+        .social-icons a { font-size: 2.2rem; margin: 0 15px; text-decoration: none; }
+        .social-icons a .fa-telegram { color: var(--telegram-color); }
+        .social-icons a .fa-youtube { color: var(--youtube-color); }
+        .social-icons a .fa-facebook { color: var(--facebook-color); }
+        .social-icons a .fa-tiktok { color: var(--tiktok-color); }
 
         footer {
             background: #222;
@@ -185,21 +186,21 @@
             text-align: center;
             padding: 30px;
             margin-top: 40px;
+            border-top: 5px solid var(--primary-gold);
         }
 
-        .social-icons a { color: white; font-size: 1.5rem; margin: 0 10px; }
-
         @media (max-width: 600px) {
-            .services { grid-template-columns: 1fr; }
             header h1 { font-size: 1.4rem; }
+            .registration-form { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
         }
     </style>
 </head>
 <body>
 
 <div class="top-bar">
-    <div><i class="fas fa-phone"></i> +251 918 486 017</div>
-    <div><i class="fas fa-envelope"></i> amhasilasienigus@gmail.com</div>
+    <div class="top-bar-item"><i class="fas fa-phone"></i> +251 918 486 017</div>
+    <div class="top-bar-item"><i class="fas fa-envelope"></i> amhasilasienigus@gmail.com</div>
 </div>
 
 <header>
@@ -218,7 +219,7 @@
 <section class="hero" id="home">
     <h2 style="font-size: 2rem; margin-bottom: 10px;">የጥበብ መጀመሪያ እግዚአብሔርን መፍራት ነው</h2>
     <p style="font-size: 1.1rem;">በገና ፣ ሥነ ሥዕል ፣ ቅርጻቅርጽ እና ሌሎችም ጥበባት</p>
-    <a href="#register" class="btn-register">አሁኑኑ ይመዝገቡ</a>
+    <a href="#register" style="background-color: var(--primary-gold); color: var(--deep-blue); padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; margin-top: 15px;">አሁኑኑ ይመዝገቡ</a>
 </section>
 
 <div class="container">
@@ -231,32 +232,32 @@
         <h2 style="text-align:center; color: var(--deep-blue);">የሥልጠና ዘርፎች</h2>
         <div class="services">
             <div class="card">
-                <div class="card-image" style="background-image: url('መዝሙር.jpg');"></div>
+                <div class="card-image"><img src="መዝሙር.jpg" alt="በገና"></div>
                 <h3>በገና</h3>
                 <p>የአሥሩ አውታር ምስጢርና የዳዊት መዝሙር ድርደራ።</p>
             </div>
             <div class="card">
-                <div class="card-image" style="background-image: url('Geez.jpg');"></div>
+                <div class="card-image"><img src="Geez.jpg" alt="ግዕዝ"></div>
                 <h3>ግዕዝ</h3>
                 <p>የጥበብ መክፈቻ የሆነውን ጥንታዊውን ቋንቋና ሰዋስው።</p>
             </div>
             <div class="card">
-                <div class="card-image" style="background-image: url('ሥዕል.jpg');"></div>
+                <div class="card-image"><img src="ሥዕል.jpg" alt="ሥነ-ሥዕል"></div>
                 <h3>ሥነ-ሥዕል</h3>
                 <p>የኢትዮጵያ አዶግራፊና የመንፈሳዊ ሥዕል ትምህርት።</p>
             </div>
             <div class="card">
-                <div class="card-image" style="background-image: url('ቅርጽ.jpg');"></div>
+                <div class="card-image"><img src="ቅርጽ.jpg" alt="ቅርጻቅርጽ"></div>
                 <h3>ቅርጻቅርጽ</h3>
                 <p>በእንጨትና በድንጋይ ላይ የሚቀረጹ ጥበቦች።</p>
             </div>
             <div class="card">
-                <div class="card-image" style="background-image: url('Kirar.jpg');"></div>
+                <div class="card-image"><img src="Kirar.jpg" alt="መሰንቆና የዜማ መሳርያዎች"></div>
                 <h3>ክራርና መሰንቆ</h3>
-                <p>የባህላዊ ዜማ መሣሪያዎች አያያዝና አጠቃቀም።</p>
+                <p>መሰንቆና ሌሎች መንፈሳዊ የዜማ መሳርያዎች ሥልጠና።</p>
             </div>
             <div class="card">
-                <div class="card-image" style="background-image: url('ትት.jpg');"></div>
+                <div class="card-image"><img src="ትት.jpg" alt="መንፈሳዊ ትምህርት"></div>
                 <h3>መንፈሳዊ ትምህርት</h3>
                 <p>ሥርዓተ ቤተክርስቲያንና የሃይማኖት ትምህርቶች።</p>
             </div>
@@ -274,12 +275,15 @@
     </section>
 
     <section id="register" class="form-section">
-        <h2 style="text-align:center;">የምዝገባ ቅጽ</h2>
+        <h2>የምዝገባ ቅጽ</h2>
         <form class="registration-form" action="https://formspree.io/f/mqegpkpe" method="POST">
-            <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="name" required></div>
+            <div class="form-group"><label>ሙሉ ስም</label><input type="text" name="full_name" required></div>
+            <div class="form-group"><label>ክርስትና ስም</label><input type="text" name="baptism_name"></div>
             <div class="form-group"><label>ስልክ ቁጥር</label><input type="tel" name="phone" required></div>
-            <div class="form-group">
-                <label>የሥልጠና ዓይነት</label>
+            <div class="form-group"><label>ኢሜይል</label><input type="email" name="email"></div>
+            <div class="form-group full-width"><label>አድራሻ</label><input type="text" name="address"></div>
+            <div class="form-group full-width">
+                <label>መሠልጠን የሚፈልጉት ዘርፍ</label>
                 <select name="course">
                     <option value="በገና">በገና</option>
                     <option value="ግዕዝ">ግዕዝ</option>
@@ -288,30 +292,32 @@
                     <option value="ክራርና መሰንቆ">ክራርና መሰንቆ</option>
                 </select>
             </div>
-            <button type="submit" class="btn-register" style="border:none; cursor:pointer; width:100%;">ምዝገባውን አጠናቅቅ</button>
+            <div class="form-group full-width" style="margin-top: 20px;">
+                <button type="submit" class="btn-register-submit">ምዝገባውን አጠናቅቅ</button>
+            </div>
         </form>
     </section>
 
     <section id="contact" class="contact-info">
-        <div>
+        <div class="contact-details">
             <h3>ያግኙን</h3>
             <p><strong>ስልክ:</strong> +251 918 486 017</p>
             <p><strong>ኢሜይል:</strong> amhasilasienigus@gmail.com</p>
         </div>
-        <div style="text-align: center;">
+        <div class="contact-social">
             <h3>ይከተሉን</h3>
             <div class="social-icons">
-                <a href="https://t.me/maidetibeb29"><i class="fab fa-telegram"></i></a>
-                <a href="https://youtube.com/@wayzemaspritualwisdom"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100064679410445"><i class="fab fa-facebook"></i></a>
-                <a href="https://tiktok.com/@wayzemabegenamaseltegna"><i class="fab fa-tiktok"></i></a>
+                <a href="https://t.me/maidetibeb29" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://youtube.com/@wayzemaspritualwisdom" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100064679410445" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://tiktok.com/@wayzemabegenamaseltegna" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </section>
 </div>
 
 <footer>
-    <p>&copy; 2026 ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል</p>
+    <p>ዋይዜማ የበገናና መንፈሳዊ ጥበባት ማሠልጠኛ ማዕከል ፲፱/፬/፳፲፰ ዓ.ም ተመሠረተ</p>
 </footer>
 
 </body>
